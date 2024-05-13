@@ -39,6 +39,7 @@ bld/
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 .vs/Project-D
+
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -377,3 +378,5 @@ Directory.Build.Override.props
 
 # Only the "snapshots" directory should be added to Git, not the "snapshots-diff" directory
 snapshots-diff/
+/Project-D/Project-D/obj/Debug
+/Project-D/Project-D/obj
