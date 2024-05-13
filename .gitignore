@@ -394,3 +394,4 @@ snapshots-diff/
 *.cache
 *.cache
 *.editorconfig
+/Project-D/Project-D/obj/Debug
