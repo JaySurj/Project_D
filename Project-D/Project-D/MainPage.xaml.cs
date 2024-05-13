@@ -14,11 +14,12 @@
             count++;
 
             if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+                CounterBtn.Text = $"Clicked {count} times";
+
             else
                 CounterBtn.Text = $"Clicked {count} times";
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Navigation.PushAsync(new LoginPage());
         }
     }
 

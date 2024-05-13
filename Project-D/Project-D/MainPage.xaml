@@ -1,39 +1,47 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_D.MainPage">
+             x:Class="Project_D.MainPage"
+             BackgroundColor="White">
+
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="5"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
             <Label
-                Text="Hello, World!"
+                Text="Welcome to"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                FontSize="18"
+                HorizontalOptions="Center" 
+                TextColor="#432C81" />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
+                Text="Mind Eaze"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
+                FontSize="36"
+                HorizontalOptions="Center"
+                TextColor="#432C81"/>
+            
+            <Image
+                Source="mindeaze.png"
+                SemanticProperties.Description="Cute narwal waving hi to you!"
+                HeightRequest="200"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
+                Text="Log in"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+                TextColor="#432C81"/>
+
+
+
+
 
         </VerticalStackLayout>
     </ScrollView>

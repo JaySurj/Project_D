@@ -24365,11 +24365,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\2451s\\OneDrive\\Bureaublad\\Project_D_Maui\\Project-D\\Project-D\\Project-D.csproj",
+      "projectUniqueName": "C:\\Users\\2451s\\Source\\Repos\\JaySurj\\Project_D\\Project-D\\Project-D\\Project-D.csproj",
       "projectName": "Project-D",
-      "projectPath": "C:\\Users\\2451s\\OneDrive\\Bureaublad\\Project_D_Maui\\Project-D\\Project-D\\Project-D.csproj",
+      "projectPath": "C:\\Users\\2451s\\Source\\Repos\\JaySurj\\Project_D\\Project-D\\Project-D\\Project-D.csproj",
       "packagesPath": "C:\\Users\\2451s\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\2451s\\OneDrive\\Bureaublad\\Project_D_Maui\\Project-D\\Project-D\\obj\\",
+      "outputPath": "C:\\Users\\2451s\\Source\\Repos\\JaySurj\\Project_D\\Project-D\\Project-D\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
