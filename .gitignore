@@ -378,5 +378,4 @@ Directory.Build.Override.props
 
 # Only the "snapshots" directory should be added to Git, not the "snapshots-diff" directory
 snapshots-diff/
-/Project-D/Project-D/obj/Debug
 /Project-D/Project-D/obj
