@@ -36,7 +36,7 @@
                 Text="Sign Up"
                 Clicked ="SignUp" 
                 HorizontalOptions="Center" 
-                BackgroundColor="#432C81"
+                BorderColor="#432C81"
                 TextColor="White"
                 CornerRadius="10" />
 
@@ -46,14 +46,9 @@
                 Clicked ="LogIn" 
                 HorizontalOptions="Center"
                 BorderColor="#432C81"
-                TextColor="#432C81"
+                TextColor="White"
                 CornerRadius="10" />
-
-
-
-
-
-
+            
         </VerticalStackLayout>
     </ScrollView>
 
