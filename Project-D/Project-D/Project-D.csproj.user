@@ -5,11 +5,11 @@
     <ActiveDebugFramework>net7.0-windows10.0.19041.0</ActiveDebugFramework>
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
-    <DefaultDevice>pixel_5_-_api_34</DefaultDevice>
+    <DefaultDevice>pixel_5_-_api_33</DefaultDevice>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetPlatformIdentifier)'=='iOS'">
-    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
-    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
+    <PlatformTarget>arm64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
