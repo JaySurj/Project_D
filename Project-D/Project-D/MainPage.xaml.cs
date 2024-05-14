@@ -2,7 +2,6 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
@@ -16,7 +15,7 @@
 
         private void SignUp(object sender, EventArgs e)
         {
-//            Navigation.PushAsync(new RegisterPage());
+            Navigation.PushAsync(new SignupPage());
         }
     }
 
