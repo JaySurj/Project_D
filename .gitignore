@@ -396,3 +396,4 @@ snapshots-diff/
 *.editorconfig
 /Project-D/Project-D/Project-D/obj/Debug
 /Project-D/Project-D/obj/Debug
+/Project-D/.vs
