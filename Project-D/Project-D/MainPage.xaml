@@ -31,23 +31,27 @@
                 HeightRequest="200"
                 HorizontalOptions="Center" />
 
+            
+
             <Button
-                x:Name="LogInBtn"
-                Text="Sign Up"
+                x:Name="SignupBtn"
+                Text="Sign up"
                 Clicked ="SignUp" 
-                HorizontalOptions="Center" 
+                HorizontalOptions="Center"
+                TextColor="white"
                 BackgroundColor="#432C81"
-                TextColor="White"
                 CornerRadius="10" />
 
             <Button
-                x:Name="RegistrationBtn"
+                x:Name="LogInBtn"
                 Text="Log in"
                 Clicked ="LogIn" 
                 HorizontalOptions="Center"
                 BorderColor="#432C81"
                 TextColor="#432C81"
-                CornerRadius="10" />
+                CornerRadius="10" />    
+            
+            
 
 
 
