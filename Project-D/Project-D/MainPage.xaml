@@ -32,12 +32,23 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="CounterBtn"
-                Text="Log in"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                x:Name="LogInBtn"
+                Text="Sign Up"
+                Clicked ="SignUp" 
                 HorizontalOptions="Center" 
-                TextColor="#432C81"/>
+                BackgroundColor="#432C81"
+                TextColor="White"
+                CornerRadius="10" />
+
+            <Button
+                x:Name="RegistrationBtn"
+                Text="Log in"
+                Clicked ="LogIn" 
+                HorizontalOptions="Center"
+                BorderColor="#432C81"
+                TextColor="#432C81"
+                CornerRadius="10" />
+
 
 
 
