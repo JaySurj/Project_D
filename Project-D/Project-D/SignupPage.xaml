@@ -31,8 +31,6 @@
                 IsPassword="True"
                 TextColor="#432C81" />
 
-            <!-- Add more entry fields for other signup data as needed -->
-
             <Button
                 Text="Submit"
                 Clicked="Signup"
