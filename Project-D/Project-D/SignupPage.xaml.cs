@@ -75,7 +75,7 @@ namespace Project_D
 
             //  navigate to a success page/ home page
 
-            //  Navigation.PushAsync(new .....);
+            Navigation.PushAsync(new SettingsPage(data));
 
 
 

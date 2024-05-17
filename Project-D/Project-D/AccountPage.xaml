@@ -1,0 +1,109 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.AccountPage"
+             BackgroundColor="White">
+
+    <Grid WidthRequest="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Hello Again"
+                   FontSize="16"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="0" />
+
+            <Label Text="Update Account"
+                   FontSize="24"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="1" />
+        </Grid>
+
+        <!-- Form -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Spacing="16"
+                         Padding="20"
+                         HorizontalOptions="FillAndExpand">
+
+                <!-- Username Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="FullnameEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Full Name"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81" />
+                </Frame>
+
+                <!-- Email Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="EmailEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Email"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81" />
+                </Frame>
+
+                <!-- Password Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="PasswordEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Password"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81"
+                           IsPassword="True" />
+                </Frame>
+
+                <!-- Forgot Password -->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="End">
+                    <Label Text="Forgot Password?"
+                           TextColor="#432C81"
+                           FontSize="13"
+                           FontFamily="Raleway" />
+                </StackLayout>
+
+                <!-- Submit Button -->
+                <Button Text="Update Account"
+                        Clicked="UpdateAccount"
+                        BackgroundColor="#432C81"
+                        FontFamily="Raleway"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand" />
+
+                <!-- Log Out -->
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
