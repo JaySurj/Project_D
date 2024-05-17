@@ -7,7 +7,7 @@ namespace Project_D
 {
     public class SignupData
     {
-        public string Username { get; set; }
+        public string Fullname { get; set; }
         public string Email { get; set; }
 
         public string Password { get; set; }
@@ -55,13 +55,19 @@ namespace Project_D
         {
             SignupData data = new SignupData
             {
-                Username = UsernameEntry.Text,
+                Fullname = FullnameEntry.Text,
                 Email = EmailEntry.Text,
                 Password = PasswordEntry.Text
             };
+
+            if (string.IsNullOrWhiteSpace(data.Fullname) || string.IsNullOrWhiteSpace(data.Email) || string.IsNullOrWhiteSpace(data.Password))
+            {
+                DisplayAlert("Error", "Please fill in all fields", "OK");
+                return;
+            }
             SignupManager.SaveSignupData(data);
 
-            UsernameEntry.Text = string.Empty;
+            FullnameEntry.Text = string.Empty;
             EmailEntry.Text = string.Empty;
             PasswordEntry.Text = string.Empty;
 
@@ -74,5 +80,6 @@ namespace Project_D
 
 
         }
+
     }
 }
