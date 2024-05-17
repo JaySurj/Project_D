@@ -47,9 +47,9 @@
                 Text="Log in"
                 Clicked ="LogIn" 
                 HorizontalOptions="Center"
-                BorderColor="#432C81"
-                TextColor="#432C81"
-                CornerRadius="10" />    
+                TextColor="white"
+                BackgroundColor="#432C81"
+                CornerRadius="10" />  
             
             
 

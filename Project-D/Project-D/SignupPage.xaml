@@ -3,45 +3,116 @@
              x:Class="Project_D.SignupPage"
              BackgroundColor="White">
 
+    <Grid WidthRequest="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <ScrollView>
-        <StackLayout
-            Spacing="10"
-            Padding="20">
+        <!-- Title -->
+        <Grid Grid.Row="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-            <Label
-                Text="Sign Up"
-                FontSize="24"
-                HorizontalOptions="Center" 
-                TextColor="#432C81" />
+            <Label Text="Hello Beautiful"
+           FontSize="16"
+           FontFamily="Raleway"
+           FontAttributes="Bold"
+           TextColor="#432C81"
+           VerticalOptions="Center"
+           HorizontalTextAlignment="Center"
+           Grid.Row="0" />
 
-            <Entry
-                x:Name="UsernameEntry"
-                Placeholder="Username"
-                TextColor="#432C81" />
+            <Label Text="Sign Up"
+           FontSize="24"
+           FontFamily="Raleway"
+           FontAttributes="Bold"
+           TextColor="#432C81"
+           VerticalOptions="Center"
+           HorizontalTextAlignment="Center"
+           Grid.Row="1" />
+        </Grid>
 
-            <Entry
-                x:Name="EmailEntry"
-                Placeholder="Email"
-                TextColor="#432C81" />
 
-            <Entry
-                x:Name="PasswordEntry"
-                Placeholder="Password"
-                IsPassword="True"
-                TextColor="#432C81" />
+        <!-- Form -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Spacing="16"
+                         Padding="20"
+                         HorizontalOptions="FillAndExpand">
 
-            <!-- Add more entry fields for other signup data as needed -->
+                <!-- Username Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="FullnameEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Full Name"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81" />
+                </Frame>
 
-            <Button
-                Text="Submit"
-                Clicked="Signup"
-                BackgroundColor="#432C81"
-                TextColor="White"
-                CornerRadius="10"
-                HorizontalOptions="FillAndExpand" />
+                <!-- Email Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="EmailEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Email"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81" />
+                </Frame>
 
-        </StackLayout>
-    </ScrollView>
+                <!-- Password Entry -->
+                <Frame BackgroundColor="White"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="#D3D3D3"
+                       CornerRadius="10">
+                    <Entry x:Name="PasswordEntry"
+                           FontFamily="Raleway"
+                           Placeholder="Password"
+                           PlaceholderColor="#432C81"
+                           TextColor="#432C81"
+                           IsPassword="True" />
+                </Frame>
+
+                <!-- Forgot Password -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Label Text="Forgot Password?"
+                           TextColor="#432C81"
+                           FontSize="13"
+                           FontFamily="Raleway" />
+                </StackLayout>
+
+                <!-- Submit Button -->
+                <Button Text="Sign Up"
+                        Clicked="Signup"
+                        BackgroundColor="#432C81"
+                        FontFamily="Raleway"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand" />
+
+                <!-- New User? -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Already have an account? "
+                           TextColor="#432C81"
+                           FontSize="13"
+                           FontFamily="Raleway" />
+                    <Label Text= " Log in"
+                           TextColor="#432C81"
+                           FontSize="13"
+                           FontFamily="Raleway" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 
 </ContentPage>

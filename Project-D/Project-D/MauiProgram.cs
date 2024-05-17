@@ -19,6 +19,13 @@ namespace Project_D
     		builder.Logging.AddDebug();
 #endif
 
+            Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
+            {
+#if ANDROID
+            handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
+#endif
+            });
+
             return builder.Build();
         }
     }
