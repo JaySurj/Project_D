@@ -31,7 +31,7 @@ namespace Project_D
 
         private void Account(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SettingsAccountPage(_data));
+            Navigation.PushAsync(new AccountPage(_data));
         }
 
 

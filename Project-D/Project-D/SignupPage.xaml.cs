@@ -71,7 +71,7 @@ namespace Project_D
             EmailEntry.Text = string.Empty;
             PasswordEntry.Text = string.Empty;
 
-            //DisplayAlert("Success", "Signup successful!", "OK");
+            DisplayAlert("Success", "Signup successful!", "OK");
 
             //  navigate to a success page/ home page
 

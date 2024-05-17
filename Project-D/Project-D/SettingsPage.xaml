@@ -85,110 +85,144 @@
                                      >
                     <!-- Account -->
                     <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
                                  Spacing="10">
                         <!-- User Icon -->
-                        <ImageButton WidthRequest="14"
+                        <Image WidthRequest="14"
                                HeightRequest="14">
-                            <ImageButton.Source>
+                            <Image.Source>
                                 <FontImageSource Glyph="{StaticResource Account}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
-
-                            </ImageButton.Source>
-                        </ImageButton>
+                            </Image.Source>
+                        </Image>
 
                         <!-- Account Label -->
                         <Label Text="Account"
                                FontFamily="Raleway"
                                FontSize="16"
-                               TextColor="#432C81" />
+                               TextColor="#432C81"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Account" />
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
+
 
 
                     <!-- Notifications -->
                     <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
                                  Spacing="10">
                         <!-- Notifications Icon -->
-                        <ImageButton WidthRequest="14"
+                        <Image WidthRequest="14"
                                HeightRequest="14">
-                            <ImageButton.Source>
+                            <Image.Source>
                                 <FontImageSource Glyph="{StaticResource Notifications}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
-                            </ImageButton.Source>
-                        </ImageButton>
+                            </Image.Source>
+                        </Image>
 
                         <!-- Notifications Label -->
                         <Label Text="Notifications"
                                FontFamily="Raleway"
                                FontSize="16"
-                               TextColor="#432C81" />
+                               TextColor="#432C81"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Notifications" />
+                        </StackLayout.GestureRecognizers>-->
                     </StackLayout>
+
 
                     <!-- Privacy and Security -->
                     <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
                                  Spacing="10">
                         <!-- Privacy and Security Icon -->
-                        <ImageButton WidthRequest="14"
+                        <Image WidthRequest="14"
                                HeightRequest="14">
-                            <ImageButton.Source>
+                            <Image.Source>
                                 <FontImageSource Glyph="{StaticResource Privacy}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
-                            </ImageButton.Source>
-                        </ImageButton>
+                            </Image.Source>
+                        </Image>
 
                         <!-- Privacy and Security Label -->
                         <Label Text="Privacy and Security"
                                FontFamily="Raleway"
                                FontSize="16"
-                               TextColor="#432C81" />
+                               TextColor="#432C81"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PrivacyAndSecurity" />
+                        </StackLayout.GestureRecognizers>-->
                     </StackLayout>
+
 
                     <!-- Sounds -->
                     <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
                                  Spacing="10">
                         <!-- Sounds Icon -->
-                        <ImageButton WidthRequest="14"
+                        <Image WidthRequest="14"
                                HeightRequest="14">
-                            <ImageButton.Source>
+                            <Image.Source>
                                 <FontImageSource Glyph="{StaticResource Sounds}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
-                            </ImageButton.Source>
-                        </ImageButton>
+                            </Image.Source>
+                        </Image>
 
                         <!-- Sounds Label -->
                         <Label Text="Sounds"
                                FontFamily="Raleway"
                                FontSize="16"
-                               TextColor="#432C81" />
+                               TextColor="#432C81"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Sounds" />
+                        </StackLayout.GestureRecognizers>-->
                     </StackLayout>
+
 
                     <!-- Language -->
                     <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
                                  Spacing="10">
                         <!-- Language Icon -->
-                        <ImageButton WidthRequest="14"
+                        <Image WidthRequest="14"
                                HeightRequest="14">
-                            <ImageButton.Source>
+                            <Image.Source>
                                 <FontImageSource Glyph="{StaticResource Language}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
-                            </ImageButton.Source>
-                        </ImageButton>
+                            </Image.Source>
+                        </Image>
 
                         <!-- Language Label -->
                         <Label Text="Language"
                                FontFamily="Raleway"
                                FontSize="16"
-                               TextColor="#432C81" />
+                               TextColor="#432C81"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Language" />
+                        </StackLayout.GestureRecognizers>-->
                     </StackLayout>
+
                 </VerticalStackLayout>
             </ScrollView>
         </VerticalStackLayout>
