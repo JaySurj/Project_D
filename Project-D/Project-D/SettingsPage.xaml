@@ -1,0 +1,197 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.SettingsPage"
+             BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <x:String x:Key="Smile">&#xf118;</x:String>
+        <x:String x:Key="Account">&#xf007;</x:String>
+        <x:String x:Key="Notifications">&#xf0f3;</x:String>
+        <x:String x:Key="Privacy">&#xf3ed;</x:String>
+        <x:String x:Key="Sounds">&#xf028;</x:String>
+        <x:String x:Key="Language">&#xf57d;</x:String>
+        <x:String x:Key="Arrow-Right">&#xf054;</x:String>
+
+
+
+
+
+
+    </ContentPage.Resources>
+
+    <Grid>
+        <!-- Settings Icon Button -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <VerticalStackLayout Grid.Row="1"
+                             Padding="20"
+                             Spacing="10">
+            <!-- Title -->
+            <Label Text="Settings"
+                   FontSize="24"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start" />
+            <ImageButton WidthRequest="100"
+                         HeightRequest="100"
+                         HorizontalOptions="Center">
+                <ImageButton.Source>
+                    <FontImageSource Glyph="{StaticResource Smile}"
+                                     FontFamily="FAS"
+                                     Color="#432C81" />
+                </ImageButton.Source>
+            </ImageButton>
+
+            <!-- Welcome Section -->
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--  Icon -->
+
+                <Label x:Name="FullnameLabel"
+                       FontSize="30"
+                       FontFamily="Raleway"
+                       FontAttributes="Bold"
+                       TextColor="#432C81"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Grid.Row="0"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="EmailLabel"
+                       FontSize="16"
+                       FontFamily="Raleway"
+                       TextColor="#A095C1"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Grid.Row="1"
+                       HorizontalOptions="Center" 
+                       />
+            </Grid>
+
+            <!-- Options List -->
+            <ScrollView>
+                <VerticalStackLayout Spacing="24"
+                                     HorizontalOptions="StartAndExpand"
+                                     >
+                    <!-- Account -->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Spacing="10">
+                        <!-- User Icon -->
+                        <ImageButton WidthRequest="14"
+                               HeightRequest="14">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="{StaticResource Account}"
+                                                 FontFamily="FAS"
+                                                 Color="#A095C1" />
+
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <!-- Account Label -->
+                        <Label Text="Account"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="#432C81" />
+                    </StackLayout>
+
+
+                    <!-- Notifications -->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Spacing="10">
+                        <!-- Notifications Icon -->
+                        <ImageButton WidthRequest="14"
+                               HeightRequest="14">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="{StaticResource Notifications}"
+                                                 FontFamily="FAS"
+                                                 Color="#A095C1" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <!-- Notifications Label -->
+                        <Label Text="Notifications"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="#432C81" />
+                    </StackLayout>
+
+                    <!-- Privacy and Security -->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Spacing="10">
+                        <!-- Privacy and Security Icon -->
+                        <ImageButton WidthRequest="14"
+                               HeightRequest="14">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="{StaticResource Privacy}"
+                                                 FontFamily="FAS"
+                                                 Color="#A095C1" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <!-- Privacy and Security Label -->
+                        <Label Text="Privacy and Security"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="#432C81" />
+                    </StackLayout>
+
+                    <!-- Sounds -->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Spacing="10">
+                        <!-- Sounds Icon -->
+                        <ImageButton WidthRequest="14"
+                               HeightRequest="14">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="{StaticResource Sounds}"
+                                                 FontFamily="FAS"
+                                                 Color="#A095C1" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <!-- Sounds Label -->
+                        <Label Text="Sounds"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="#432C81" />
+                    </StackLayout>
+
+                    <!-- Language -->
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start"
+                                 Spacing="10">
+                        <!-- Language Icon -->
+                        <ImageButton WidthRequest="14"
+                               HeightRequest="14">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="{StaticResource Language}"
+                                                 FontFamily="FAS"
+                                                 Color="#A095C1" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <!-- Language Label -->
+                        <Label Text="Language"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="#432C81" />
+                    </StackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
