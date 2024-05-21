@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.SignupPage"
@@ -11,31 +12,30 @@
         </Grid.RowDefinitions>
 
         <!-- Title -->
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Label Text="Hello Beautiful"
-           FontSize="16"
-           FontFamily="Raleway"
-           FontAttributes="Bold"
-           TextColor="#432C81"
-           VerticalOptions="Center"
-           HorizontalTextAlignment="Center"
-           Grid.Row="0" />
+                   FontSize="16"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="0" />
 
             <Label Text="Sign Up"
-           FontSize="24"
-           FontFamily="Raleway"
-           FontAttributes="Bold"
-           TextColor="#432C81"
-           VerticalOptions="Center"
-           HorizontalTextAlignment="Center"
-           Grid.Row="1" />
+                   FontSize="24"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="1" />
         </Grid>
-
 
         <!-- Form -->
         <ScrollView Grid.Row="1">
@@ -84,7 +84,8 @@
                 </Frame>
 
                 <!-- Forgot Password -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="End">
                     <Label Text="Forgot Password?"
                            TextColor="#432C81"
                            FontSize="13"
@@ -101,12 +102,13 @@
                         HorizontalOptions="FillAndExpand" />
 
                 <!-- New User? -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
                     <Label Text="Already have an account? "
                            TextColor="#432C81"
                            FontSize="13"
                            FontFamily="Raleway" />
-                    <Label Text= " Log in"
+                    <Label Text="Log in"
                            TextColor="#432C81"
                            FontSize="13"
                            FontFamily="Raleway" />
@@ -114,5 +116,4 @@
             </StackLayout>
         </ScrollView>
     </Grid>
-
 </ContentPage>

@@ -6,21 +6,19 @@ namespace Project_D
 {
     public partial class SettingsPage : ContentPage
     {
+        private User _user;
 
-        private SignupData _data;
-        public SettingsPage(SignupData data)
+        public SettingsPage(User user)
         {
             InitializeComponent();
-            _data = data;
-            DisplayUserData(data);
+            _user = user;
+            DisplayUserData(user);
         }
 
-
-
-        private void DisplayUserData(SignupData data)
+        private void DisplayUserData(User user)
         {
-            FullnameLabel.Text = data.Fullname;
-            EmailLabel.Text = data.Email;
+            FullnameLabel.Text = user.Fullname;
+            EmailLabel.Text = user.Email;
         }
 
         private void Logout(object sender, EventArgs e)
@@ -31,10 +29,7 @@ namespace Project_D
 
         private void Account(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AccountPage(_data));
+            Navigation.PushAsync(new AccountPage(_user));
         }
-
-
-        
-}
+    }
 }
