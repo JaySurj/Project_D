@@ -19,13 +19,49 @@ namespace Project_D
                 }
             }
         }
+        public string _greetingText;
 
-        public HomePage()
+        public string GreetingText
+        {
+            get { return _greetingText; }
+            set
+            {
+                if (_greetingText != value)
+                {
+                    _greetingText = value;
+                    OnPropertyChanged(nameof(GreetingText));
+                }
+            }
+        }   
+
+        private User _user;
+        public User User
+        {
+            get { return _user; }
+            set
+            {
+                if (_user != value)
+                {
+                    _user = value;
+                    OnPropertyChanged(nameof(User));
+                }
+            }
+        }
+
+        public HomePage(User user
+            )
         {
             InitializeComponent();
+            _user = user;
+            GreetingText = _user.Fullname;
+
             BindingContext = this; // Set the BindingContext to the instance of HomePage
         }
 
+        private void SettingsButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingsPage(_user));
+        }
         // INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
 

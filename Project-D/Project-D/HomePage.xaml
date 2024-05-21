@@ -14,16 +14,24 @@
 
         <!-- Grid with greeting message -->
         <Grid Padding="10" HorizontalOptions="Start">
-            <Label Text="👋🏻 Hi Current User!"
-                   TextColor="#432C81"
-                   FontSize="Large"
-                   VerticalOptions="Center" />
+            <Label TextColor="#432C81"
+           FontSize="Large"
+           VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="👋🏻 Hello " />
+                        <Span Text="{Binding GreetingText}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </Grid>
+
+
 
         <!-- Profile icon in the top right corner -->
         <Image Source="mindeaze.png"
-               HeightRequest="24"
-               WidthRequest="24"
+               HeightRequest="100"
+               WidthRequest="100"
                VerticalOptions="Start"
                HorizontalOptions="End"
                Margin="0,10,10,0"
@@ -101,11 +109,12 @@
             VerticalOptions="Center"/>
 
             <!-- Icon/Setting -->
-            <Image
-            Source="setting_icon.png"
-            WidthRequest="24"
-            HeightRequest="24"
-            VerticalOptions="Center"/>
+            <ImageButton Clicked="SettingsButton_Clicked"
+             BackgroundColor="Transparent"
+             Source="setting_icon.png"
+             WidthRequest="24"
+             HeightRequest="24"
+             VerticalOptions="Center"/>
         </StackLayout>
     </Grid>
 </ContentPage>

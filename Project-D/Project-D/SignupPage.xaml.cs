@@ -80,12 +80,12 @@ namespace Project_D
 
             //  navigate to a success page/ home page
 
-            Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePage(user));
 
 
 
             // Navigate to a success page/ home page
-            await Navigation.PushAsync(new SettingsPage(user));
+            /* await Navigation.PushAsync(new SettingsPage(user));*/
         }
     }
 }
