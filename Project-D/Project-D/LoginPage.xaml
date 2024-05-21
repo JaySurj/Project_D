@@ -40,7 +40,7 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
                             <Image Source="idcard.png" Aspect="AspectFill" Margin="0" />
                         </Frame>
-                        <Entry Text="{Binding Username}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0"/>
+                        <Entry x:Name="usernameEntry" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0"/>
                     </StackLayout>
                 </Frame>
 
@@ -49,7 +49,7 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
                             <Image Source="padlock.png" Aspect="AspectFill" Margin="0" />
                         </Frame>
-                        <Entry Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0"/>
+                        <Entry x:Name="passwordEntry" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0"/>
                     </StackLayout>
                 </Frame>
 
@@ -59,7 +59,7 @@
                     <Label Text="Forgot Password?" TextColor="#432C81" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                 </StackLayout>
 
-                <Button Text="Sign In" BackgroundColor="#432C81" Command="{Binding LoginCommand}"/>
+                <Button Text="Sign In" BackgroundColor="#432C81" Clicked="Login_Clicked"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <Label Text="New User?" TextColor="DarkGray" FontSize="Small"/>
                     <Label Text=" Sign Up" TextColor="#432C81"/>
