@@ -49,7 +49,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\bell_icon.png" />
+	  <None Remove="Resources\Images\chart_icon.png" />
+	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\Mind Eaze ICON.png" />
+	  <None Remove="Resources\Images\setting_icon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -57,6 +61,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
