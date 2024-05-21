@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_D.SignupPage"
+             x:Class="Project_D.AccountPage"
              BackgroundColor="White">
 
     <Grid WidthRequest="300">
@@ -18,7 +17,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Label Text="Hello Beautiful"
+            <Label Text="Hello Again"
                    FontSize="16"
                    FontFamily="Raleway"
                    FontAttributes="Bold"
@@ -27,7 +26,7 @@
                    HorizontalTextAlignment="Center"
                    Grid.Row="0" />
 
-            <Label Text="Sign Up"
+            <Label Text="Update Account"
                    FontSize="24"
                    FontFamily="Raleway"
                    FontAttributes="Bold"
@@ -93,27 +92,18 @@
                 </StackLayout>
 
                 <!-- Submit Button -->
-                <Button Text="Sign Up"
-                        Clicked="Signup"
+                <Button Text="Update Account"
+                        Clicked="UpdateAccount"
                         BackgroundColor="#432C81"
                         FontFamily="Raleway"
                         TextColor="White"
                         CornerRadius="10"
                         HorizontalOptions="FillAndExpand" />
 
-                <!-- New User? -->
-                <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                    <Label Text="Already have an account? "
-                           TextColor="#432C81"
-                           FontSize="13"
-                           FontFamily="Raleway" />
-                    <Label Text="Log in"
-                           TextColor="#432C81"
-                           FontSize="13"
-                           FontFamily="Raleway" />
-                </StackLayout>
+                <!-- Log Out -->
+
             </StackLayout>
         </ScrollView>
     </Grid>
+
 </ContentPage>
