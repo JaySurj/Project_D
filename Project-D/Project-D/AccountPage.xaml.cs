@@ -1,33 +1,37 @@
 using System;
+using Microsoft.Maui.Controls;
 
 namespace Project_D
 {
     public partial class AccountPage : ContentPage
     {
-        private SignupData _data;
+        private User _user;
+        private LocalDbService _dbService;
 
-        public AccountPage(SignupData data)
+        public AccountPage(User user)
         {
             InitializeComponent();
-            _data = data;
-            DisplayUserData(data);
+            _user = user;
+            _dbService = new LocalDbService(); // Initialize your local database service
+            DisplayUserData(_user);
         }
 
-        private void DisplayUserData(SignupData data)
+        private void DisplayUserData(User user)
         {
-            FullnameEntry.Text = data.Fullname;
-            EmailEntry.Text = data.Email;
-            PasswordEntry.Text = data.Password; // Assuming Password is also passed. Ensure to handle passwords securely.
+            FullnameEntry.Text = user.Fullname;
+            EmailEntry.Text = user.Email;
+            PasswordEntry.Text = user.Password; // Assuming Password is also passed. Ensure to handle passwords securely.
         }
 
-        private void UpdateAccount(object sender, EventArgs e)
+        private async void UpdateAccount(object sender, EventArgs e)
         {
             // Update the account data here
-            _data.Fullname = FullnameEntry.Text;
-            _data.Email = EmailEntry.Text;
-            _data.Password = PasswordEntry.Text;
+            _user.Fullname = FullnameEntry.Text;
+            _user.Email = EmailEntry.Text;
+            _user.Password = PasswordEntry.Text;
 
-            // Add code to update the data in your backend or database.
+            // Update the data in your database
+            await _dbService.Update(_user);
 
             DisplayAlert("Success", "Account updated successfully!", "OK");
         }
