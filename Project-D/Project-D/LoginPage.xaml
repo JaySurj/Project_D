@@ -49,7 +49,7 @@
                         <Frame BackgroundColor="Transparent" BorderColor="Transparent" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
                             <Image Source="padlock.png" Aspect="AspectFill" Margin="0" />
                         </Frame>
-                        <Entry x:Name="passwordEntry" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0"/>
+                        <Entry x:Name="passwordEntry" Placeholder="Password" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin=" 0, 0 , 50, 0" IsPassword="True"/>
                     </StackLayout>
                 </Frame>
 

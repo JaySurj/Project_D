@@ -49,11 +49,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\Calming picture.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Fonts\Brands-Regular-400.otf" />
 	  <None Remove="Resources\Fonts\Free-Regular-400.otf" />
 	  <None Remove="Resources\Fonts\Free-Solid-900.otf" />
 	  <None Remove="Resources\Fonts\Juicy.ttf" />
 	  <None Remove="Resources\Images\bell_icon.png" />
+	  <None Remove="Resources\Images\Calming picture.jpg" />
+	  <None Remove="Resources\Images\calmpic.jpg" />
 	  <None Remove="Resources\Images\chart_icon.png" />
 	  <None Remove="Resources\Images\home_icon.png" />
 	  <None Remove="Resources\Images\Mind Eaze ICON.png" />
@@ -71,15 +77,28 @@
 		<Compile Update="MainPage.xaml.cs">
 			<DependentUpon>MainPage.xaml</DependentUpon>
 		</Compile>
+		<Compile Update="CalmingPage.xaml.cs">
+		  <DependentUpon>CalmingPage.xaml</DependentUpon>
+		</Compile>
+		<MauiXaml Update="BPMPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	  <MauiXaml Update="HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CalmingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="SignupPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Databases\" />
 	</ItemGroup>
 
 </Project>
