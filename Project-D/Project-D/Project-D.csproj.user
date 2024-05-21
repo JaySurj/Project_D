@@ -21,13 +21,13 @@
     <MauiXaml Update="AppShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="HomePage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="HomePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Platforms\Windows\App.xaml">
