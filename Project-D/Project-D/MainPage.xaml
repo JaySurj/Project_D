@@ -4,55 +4,50 @@
              BackgroundColor="White">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="5"
-                             Padding="30,0"
-                             VerticalOptions="FillAndExpand">
+        <VerticalStackLayout
+            Spacing="5"
+            Padding="30,0"
+            VerticalOptions="Center">
 
-            <!-- Welcome Text -->
-            <Label Text="Welcome to"
-                   Padding="10"
-                   FontFamily="Raleway"
-                   SemanticProperties.HeadingLevel="Level1"
-                   FontSize="18"
-                   HorizontalOptions="Center"
-                   TextColor="#432C81" />
+            <Label
+                Text="Welcome to"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="18"
+                HorizontalOptions="Center" 
+                TextColor="#432C81" />
 
-            <Label Text="Mind Eaze"
-                   FontFamily="Raleway"
-                   SemanticProperties.HeadingLevel="Level2"
-                   SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                   FontSize="36"
-                   HorizontalOptions="Center"
-                   TextColor="#432C81" />
+            <Label
+                Text="Mind Eaze"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="36"
+                HorizontalOptions="Center"
+                TextColor="#432C81"/>
+            
+            <Image
+                Source="mindeaze.png"
+                SemanticProperties.Description="Cute narwal waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
 
-            <Image Source="mindeaze.png"
-                   SemanticProperties.Description="Cute narwal waving hi to you!"
-                   HeightRequest="300"
-                   HorizontalOptions="Center" />
+            <Button
+                x:Name="LogInBtn"
+                Text="Sign Up"
+                Clicked ="SignUp" 
+                HorizontalOptions="Center" 
+                BorderColor="#432C81"
+                TextColor="White"
+                CornerRadius="10" />
 
-            <!-- Signup Button -->
-            <Button x:Name="SignupBtn"
-                    Text="Sign up"
-                    FontFamily="Raleway"
-                    Clicked="SignUp"
-                    HorizontalOptions="FillAndExpand"
-                    TextColor="white"
-                    BackgroundColor="#432C81"
-                    CornerRadius="10"
-                    Padding="20,10" />
-
-            <!-- Login Button -->
-            <Button x:Name="LogInBtn"
-                    Text="Log in"
-                    FontFamily="Raleway"
-                    Clicked="LogIn"
-                    HorizontalOptions="FillAndExpand"
-                    TextColor="#432C81"
-                    BackgroundColor="white"
-                    BorderWidth="1"
-                    BorderColor="#432C81"
-                    CornerRadius="10"
-                    Padding="20,10" />
+            <Button
+                x:Name="RegistrationBtn"
+                Text="Log in"
+                Clicked ="LogIn" 
+                HorizontalOptions="Center"
+                BorderColor="#432C81"
+                TextColor="White"
+                CornerRadius="10" />
+            
         </VerticalStackLayout>
     </ScrollView>
 
