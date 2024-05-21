@@ -23,6 +23,8 @@ namespace Project_D
 
                 });
 
+            builder.Services.AddSingleton<LocalDbService>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
