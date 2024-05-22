@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.CalmingPage"
+             Title="CalmingPage">
+            
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="5"
+                             Padding="30,0"
+                             VerticalOptions="FillAndExpand">
+
+            <!-- Pop-up window content -->
+            <Frame CornerRadius="10" BackgroundColor="White" Padding="20"
+               IsVisible="{Binding IsPopupVisible}" VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Text="Keep Calm message or Insert Quote" HorizontalOptions="Center"/>
+                    <!-- Add more labels or controls for additional text or content -->
+                </StackLayout>
+            </Frame>
+
+            <Image Source="calmpic.png"
+                   SemanticProperties.Description="Mindfreeze!"
+                   HeightRequest="300"
+                   HorizontalOptions="Center" />
+
+            <!-- Signup Button -->
+            <Button Text="Are You OK?"
+                    Clicked="AreYouOKButton_Clicked"
+                    FontFamily="Raleway"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="white"
+                    BackgroundColor="DarkOliveGreen"
+                    CornerRadius="10"
+                    Padding="20,10" />
+
+            <!-- Login Button -->
+            <Button Text="Relax excercises"
+                    Clicked="HelpRelaxButton_Clicked"
+                    FontFamily="Raleway"
+                    HorizontalOptions="FillAndExpand"
+                    TextColor="#432C81"
+                    BackgroundColor="white"
+                    BorderWidth="1"
+                    BorderColor="#432C81"
+                    CornerRadius="10"
+                    Padding="20,10" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+
+    
