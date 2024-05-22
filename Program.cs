@@ -12,8 +12,8 @@ using NAudio.Wave;
 
 public class Program
 {
-    private static string MusicFile;
-    private static string PictureFile;
+    private static string MusicFile = "";
+    private static string PictureFile = "";
     private static bool isSportmode = false;
     private static bool isStressed = false;
     private static bool isPlaying = false;
@@ -57,6 +57,9 @@ public class Program
         {
             Console.WriteLine("Sportmodus");
             isSportmode = true;
+            // voor nu de logica nog niet goed, moet nog in de start() logica aanpassen
+            HartslagLimiet = 200;
+            // ^^^^
             return;
         }
         if (key.Key == ConsoleKey.Escape)
@@ -70,59 +73,46 @@ public class Program
 
     private static void ChangeSettings()
     {
-        Console.WriteLine("Choose an action:");
-        Console.WriteLine("1. Show Picture");
-        Console.WriteLine("2. Play Music");
+        Console.WriteLine();
+        Console.WriteLine("Kies een afbeelding:");
+        Console.WriteLine("1. Relaxing sea");
+        Console.WriteLine("2. Keep calm");
+        Console.WriteLine("3. Picture 3");
 
-        ConsoleKeyInfo actionKey = Console.ReadKey();
-        switch (actionKey.KeyChar)
+        switch (Console.ReadKey().KeyChar)
         {
             case '1':
-                Console.WriteLine("Choose a picture to show:");
-                Console.WriteLine("1. Picture 1");
-                Console.WriteLine("2. Picture 2");
-                Console.WriteLine("3. Picture 3");
-                ConsoleKeyInfo pictureKey = Console.ReadKey();
-                switch (pictureKey.KeyChar)
-                {
-                    case '1':
-                        PictureFile = PictureFile1;
-                        break;
-                    case '2':
-                        PictureFile = PictureFile2;
-                        break;
-                    case '3':
-                        PictureFile = PictureFile3;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice");
-                        break;
-                }
+                PictureFile = PictureFile1;
                 break;
             case '2':
-                Console.WriteLine("Choose a music to play:");
-                Console.WriteLine("1. Music 1");
-                Console.WriteLine("2. Music 2");
-                Console.WriteLine("3. Music 3");
-                ConsoleKeyInfo musicKey = Console.ReadKey();
-                switch (musicKey.KeyChar)
-                {
-                    case '1':
-                        MusicFile = MusicFile1;
-                        break;
-                    case '2':
-                        MusicFile = MusicFile2;
-                        break;
-                    case '3':
-                        MusicFile = MusicFile3;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid choice");
-                        break;
-                }
+                PictureFile = PictureFile2;
+                break;
+            case '3':
+                PictureFile = PictureFile3;
                 break;
             default:
-                Console.WriteLine("Invalid choice");
+                Console.WriteLine("Invalid input");
+                break;
+        }
+        Console.WriteLine();
+        Console.WriteLine("Kies een muziek:");
+        Console.WriteLine("1. Birds chirping");
+        Console.WriteLine("2. Relaxing music");
+        Console.WriteLine("3. Music 3");
+
+        switch (Console.ReadKey().KeyChar)
+        {
+            case '1':
+                MusicFile = MusicFile1;
+                break;
+            case '2':
+                MusicFile = MusicFile2;
+                break;
+            case '3':
+                MusicFile = MusicFile3;
+                break;
+            default:
+                Console.WriteLine("Invalid input");
                 break;
         }
         Main(null);
@@ -261,7 +251,7 @@ public class Program
 
     private static void ShowPicture()
     {
-        var startInfo = new ProcessStartInfo(PictureFile1)
+        var startInfo = new ProcessStartInfo(PictureFile)
         {
             UseShellExecute = true
         };
@@ -272,7 +262,7 @@ public class Program
     {
         try
         {
-            using (var audioFileReader = new AudioFileReader(MusicFile1))
+            using (var audioFileReader = new AudioFileReader(MusicFile))
             {
                 using (var waveOut = new WaveOutEvent())
                 {
