@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,26 +9,123 @@ using System.Media;
 using NAudio.Wave;
 
 // dotnet add package NAudio
-//
+
 public class Program
 {
+    private static string MusicFile;
+    private static string PictureFile;
+    private static bool isSportmode = false;
+    private static bool isStressed = false;
+    private static bool isPlaying = false;
     private static string MusicFile1 = "muziek_1.mp3";
     private static string MusicFile2 = "muziek_2.mp3";
     private static string MusicFile3 = "muziek_3.mp3";
     private static string DataHartslag = "hartslag.json";
     private static string PictureFile1 = "afbeelding_1.jpg";
-    private static int HartslagLimiet = 70;
+    private static string PictureFile2 = "afbeelding_2.jpg";
+    private static string PictureFile3 = "afbeelding_3.jpg";
+    // als hartslag boven de limiet komt zal de muziek afspelen
+    private static int HartslagLimiet = 100;
+    // na hoeveel seconden hartslag boven de limiet is
     private static int SecondenLimiet = 3;
-    private static bool IsPlaying = false;
-    private static int next = 0;
+    //private static int next = 0;
     private static double Time = 0;
-    private static double TimeInterval = 1;
+    // time + 1 second
+    private static int TimePassed = 1;
+    // TimeInterval is in milliseconds, dus 1000ms = 1s
+    private static int TimeInterval = 1000;
     private static Stopwatch stopwatch = new Stopwatch();
 
 
     public static void Main(string[] args)
     {
+        Console.WriteLine("Hartslag simuleren, druk op een knop om te starten");
+        Console.WriteLine("Stressed mode is spacebar, normal mode is enter");
+        Console.WriteLine("sport mode is backspace en settings is escape");
+        ConsoleKeyInfo key = Console.ReadKey();
+        if (key.Key == ConsoleKey.Spacebar)
+        {
+            Console.WriteLine("Stressed mode");
+            isStressed = true;
+        }
+        if (key.Key == ConsoleKey.Enter)
+        {
+            Console.WriteLine("Normale mode");
+            isStressed = false;
+        }
+        if (key.Key == ConsoleKey.Backspace)
+        {
+            Console.WriteLine("Sportmodus");
+            isSportmode = true;
+            return;
+        }
+        if (key.Key == ConsoleKey.Escape)
+        {
+            Console.WriteLine("settings");
+            ChangeSettings();
+            return;
+        }
         Start();
+    }
+
+    private static void ChangeSettings()
+    {
+        Console.WriteLine("Choose an action:");
+        Console.WriteLine("1. Show Picture");
+        Console.WriteLine("2. Play Music");
+
+        ConsoleKeyInfo actionKey = Console.ReadKey();
+        switch (actionKey.KeyChar)
+        {
+            case '1':
+                Console.WriteLine("Choose a picture to show:");
+                Console.WriteLine("1. Picture 1");
+                Console.WriteLine("2. Picture 2");
+                Console.WriteLine("3. Picture 3");
+                ConsoleKeyInfo pictureKey = Console.ReadKey();
+                switch (pictureKey.KeyChar)
+                {
+                    case '1':
+                        PictureFile = PictureFile1;
+                        break;
+                    case '2':
+                        PictureFile = PictureFile2;
+                        break;
+                    case '3':
+                        PictureFile = PictureFile3;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+                break;
+            case '2':
+                Console.WriteLine("Choose a music to play:");
+                Console.WriteLine("1. Music 1");
+                Console.WriteLine("2. Music 2");
+                Console.WriteLine("3. Music 3");
+                ConsoleKeyInfo musicKey = Console.ReadKey();
+                switch (musicKey.KeyChar)
+                {
+                    case '1':
+                        MusicFile = MusicFile1;
+                        break;
+                    case '2':
+                        MusicFile = MusicFile2;
+                        break;
+                    case '3':
+                        MusicFile = MusicFile3;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+                break;
+            default:
+                Console.WriteLine("Invalid choice");
+                break;
+        }
+        Main(null);
     }
 
     private static void Start()
@@ -38,7 +135,7 @@ public class Program
         while (true)
         {
             int hartslag = SimuleerHartslag(Time);
-            Time += TimeInterval;
+            Time++;
 
             var hartslagData = new HartslagData
             {
@@ -47,7 +144,7 @@ public class Program
             };
 
             string json = JsonConvert.SerializeObject(hartslagData);
-            File.AppendAllText(DataHartslag, json + Environment.NewLine);
+            File.AppendAllText(DataHartslag, json + "\n");
 
             Console.WriteLine($"Hartslag van {hartslag} bpm, gemeten om {DateTime.Now}");
 
@@ -59,42 +156,108 @@ public class Program
                     stopwatch.Start();
                 }
 
-                if (stopwatch.Elapsed.TotalSeconds >= SecondenLimiet && !IsPlaying)
+                if (stopwatch.Elapsed.TotalSeconds >= SecondenLimiet && !isPlaying)
                 {
                     ShowPicture();
-
-                    PlayMP3File();
-                    IsPlaying = true;
+                    PlayMusic();
+                    isPlaying = true;
                 }
 
             }
             else
             {
                 stopwatch.Reset();
-                IsPlaying = false;
+                isPlaying = false;
             }
-
-            Thread.Sleep((int)(TimeInterval * 1000)); // Omzetten naar milliseconden
+            Thread.Sleep(TimeInterval);
         }
     }
 
     private static int SimuleerHartslag(double tijd)
     {
-        double bpm = 70 + 10 * Math.Sin(2 * Math.PI * (tijd / 60)); // Simuleer een basislijn met lichte variatie
-        double pqrst = PQRST(tijd % (60.0 / bpm)); // PQRST-golfvorm over een hartslagperiode
-        return (int)(bpm + pqrst * 10); // Schaal de PQRST-golfvorm op
+        double baselineBpm, irregularity;
+        if (isStressed)
+        {
+            baselineBpm = 90 + 20 * Math.Sin(2 * Math.PI * (tijd / 30));
+            irregularity = 5 * Math.Sin(5 * Math.PI * (tijd / 30));
+        }
+        else
+        {
+            baselineBpm = 70 + 10 * Math.Sin(2 * Math.PI * (tijd / 60));
+            irregularity = 2 * Math.Sin(5 * Math.PI * (tijd / 60));
+        }
+
+        double bpm = baselineBpm + irregularity;
+        
+        double pqrst;
+        if (isStressed)
+        {
+            pqrst = AnxiousHeartbeat(tijd % (60.0 / bpm));
+        }
+        else
+        {
+            pqrst = NormalHeartbeat(tijd % (60.0 / bpm));
+        }
+        return (int)(bpm + pqrst * 10);
     }
 
-    private static double PQRST(double tijd)
+    private static double NormalHeartbeat(double tijd)
     {
-        // Simuleer een eenvoudige PQRST-golfvorm
-        if (tijd < 0.1) return 0.1 * Math.Sin(20 * Math.PI * tijd);       // P-golf
-        if (tijd < 0.12) return -0.5;                                     // Q-daling
-        if (tijd < 0.2) return 1.0;                                       // R-piek
-        if (tijd < 0.3) return -0.3;                                      // S-daling
-        if (tijd < 0.4) return 0.1 * Math.Sin(20 * Math.PI * (tijd - 0.2)); // T-golf
-        return 0.0;
+        if (tijd < 0.1) 
+        {
+            return 0.1 * Math.Sin(20 * Math.PI * tijd);
+        }
+        if (tijd < 0.12) 
+        {
+            return -0.5;
+        }
+        if (tijd < 0.2) 
+        {
+            return 1.0; 
+        }
+        if (tijd < 0.3)
+        {
+            return -0.3;
+        }
+        if (tijd < 0.4) 
+        {
+            return 0.1 * Math.Sin(20 * Math.PI * (tijd - 0.2));
+        }
+        else
+        {
+            return 0;
+        }
     }
+
+    // 
+    private static double AnxiousHeartbeat(double tijd)
+    {
+        if (tijd < 0.1) 
+        {
+            return 0.2 * Math.Sin(20 * Math.PI * tijd);
+        }
+        if (tijd < 0.12) 
+        {
+            return -0.7;
+        }
+        if (tijd < 0.2) 
+        {
+            return 1.2;
+        }
+        if (tijd < 0.3) 
+        {
+            return -0.5;
+        }
+        if (tijd < 0.4) 
+        {
+            return 0.2 * Math.Sin(20 * Math.PI * (tijd - 0.2));
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 
     private static void ShowPicture()
     {
@@ -105,7 +268,7 @@ public class Program
         Process.Start(startInfo);
     }
 
-    private static void PlayMP3File()
+    private static void PlayMusic()
     {
         try
         {
