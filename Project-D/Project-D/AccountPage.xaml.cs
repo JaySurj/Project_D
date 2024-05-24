@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Maui.Controls;
+using Dropbox.Api;
 
 namespace Project_D
 {
@@ -38,9 +39,9 @@ namespace Project_D
 
         private void LogOutTapped(object sender, EventArgs e)
         {
-            // Handle log out logic here
+            // Navigate to login page
             DisplayAlert("Logged Out", "You have been logged out.", "OK");
-            // Navigate to login page or main page
+            Navigation.PopToRootAsync();
         }
     }
 }

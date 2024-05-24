@@ -71,6 +71,8 @@
 		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
+		<PackageReference Include="Dropbox.Api" Version="7.0.0" />
+
 	</ItemGroup>
 
 	<ItemGroup>

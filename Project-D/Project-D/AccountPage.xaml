@@ -101,7 +101,7 @@
                         HorizontalOptions="FillAndExpand" />
 
                 <!-- Log Out -->
-
+              
             </StackLayout>
         </ScrollView>
     </Grid>
