@@ -18,7 +18,7 @@ namespace Project_D
         public LocalDbService()
         {
             _dbPath = DatabaseConfig.DatabasePath;
-            _dbx = new DropboxClient("sl.B1-hRGuqIS0BDotiR-_xkdiMrYSzLRJLK8gJB6r5WFOL0JaqmtvJ9hQX5boR6UH9L6QYQeWb1to69poiQ8eSG_SFxxNzqzCGYg1ZwVxZlKYRuGvl4oivgiDRK0xxtF3ERw_O-hhEaQD2GpI");
+            _dbx = new DropboxClient("sl.B2Co7f-lbnKfyc-OKac4Ue6ylfvflmfe2i-eafSZdc0MufOKileTw099rj_I48csgBLk9DBRfvRnuzNzGS4mroV5KkwlaDJAPKbJUYIz7F2mJHOY6uzLX6RSdaJTHFyy_T7vCKO65atvjSM");
             _db = new SQLiteAsyncConnection(_dbPath);
             _db.CreateTableAsync<User>().Wait();
         }

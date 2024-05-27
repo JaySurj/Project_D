@@ -91,9 +91,9 @@
 		<Compile Update="CalmingPage.xaml.cs">
 		  <DependentUpon>CalmingPage.xaml</DependentUpon>
 		</Compile>
-		<MauiXaml Update="AdminPage.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
+		<Compile Update="AdminPage.xaml.cs">
+		  <DependentUpon>AdminPage.xaml</DependentUpon>
+		</Compile>
 		<MauiXaml Update="BPMPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -104,6 +104,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CalmingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="AdminPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SignupPage.xaml">

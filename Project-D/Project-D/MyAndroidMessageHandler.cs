@@ -19,7 +19,7 @@ public class MyAndroidMessageHandler : HttpClientHandler
 
 public static class DropboxClientFactory
 {
-    private const string AccessToken = "sl.B1-hRGuqIS0BDotiR-_xkdiMrYSzLRJLK8gJB6r5WFOL0JaqmtvJ9hQX5boR6UH9L6QYQeWb1to69poiQ8eSG_SFxxNzqzCGYg1ZwVxZlKYRuGvl4oivgiDRK0xxtF3ERw_O-hhEaQD2GpI";
+    private const string AccessToken = "sl.B2Co7f-lbnKfyc-OKac4Ue6ylfvflmfe2i-eafSZdc0MufOKileTw099rj_I48csgBLk9DBRfvRnuzNzGS4mroV5KkwlaDJAPKbJUYIz7F2mJHOY6uzLX6RSdaJTHFyy_T7vCKO65atvjSM";
 
     public static DropboxClient GetClient()
     {
