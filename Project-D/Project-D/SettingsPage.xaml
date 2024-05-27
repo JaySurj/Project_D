@@ -11,6 +11,7 @@
         <x:String x:Key="Sounds">&#xf028;</x:String>
         <x:String x:Key="Language">&#xf57d;</x:String>
         <x:String x:Key="Arrow-Right">&#xf054;</x:String>
+        <x:String x:Key="Logout">&#xf2f5;</x:String>
 
 
 
@@ -38,6 +39,7 @@
                    TextColor="#432C81"
                    VerticalOptions="Start"
                    HorizontalOptions="Start" />
+            
             <ImageButton WidthRequest="100"
                          HeightRequest="100"
                          HorizontalOptions="Center">
@@ -222,6 +224,34 @@
                             <TapGestureRecognizer Tapped="Language" />
                         </StackLayout.GestureRecognizers>-->
                     </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 Spacing="10">
+                        <!-- LogOut Icon -->
+                        <Image WidthRequest="14"
+                               HeightRequest="14">
+                            <Image.Source>
+                                <FontImageSource Glyph="{StaticResource Logout}"
+                                                 FontFamily="FAS"
+                                                 Color="red" />
+                            </Image.Source>
+                        </Image>
+
+                        <!-- Account Label -->
+                        <Label Text="Logout"
+                               FontFamily="Raleway"
+                               FontSize="16"
+                               TextColor="red"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" />
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Logout" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+
 
                 </VerticalStackLayout>
             </ScrollView>

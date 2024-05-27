@@ -49,6 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Databases\**" />
+	  <Compile Remove="Databases\**" />
+	  <EmbeddedResource Remove="Databases\**" />
+	  <MauiCss Remove="Databases\**" />
+	  <MauiXaml Remove="Databases\**" />
+	  <None Remove="Databases\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiImage Remove="Resources\Images\Calming picture.jpg" />
 	</ItemGroup>
 
@@ -82,6 +91,9 @@
 		<Compile Update="CalmingPage.xaml.cs">
 		  <DependentUpon>CalmingPage.xaml</DependentUpon>
 		</Compile>
+		<MauiXaml Update="AdminPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="BPMPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -97,10 +109,6 @@
 	  <MauiXaml Update="SignupPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Databases\" />
 	</ItemGroup>
 
 </Project>

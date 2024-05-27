@@ -11,20 +11,35 @@ namespace Project_D
 {
     public class LocalDbService
     {
-        private const string DB_NAME = "local_db.db";
         private readonly SQLiteAsyncConnection _db;
-        private readonly string _dbPath;
         private readonly DropboxClient _dbx;
+        private readonly string _dbPath;
 
         public LocalDbService()
         {
-            _dbx = new DropboxClient("sl.B132g8LuSE0DAUpQjfxH38aJXVpsAAaPsMahcLQW3j37zFQEMhXdqOQ7VCnSTbfcDs8K6TFYGUBXn1S33dstuUzLKMTb_fLTQ8lHvVFI5_rZpeyxmIN3h-mPJ7p8kFoE5L_9QUhkGE0cPrY");
-            var xamlDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            _dbPath = Path.Combine(xamlDirectory, DB_NAME);
-
+            _dbPath = DatabaseConfig.DatabasePath;
+            _dbx = new DropboxClient("sl.B1-hRGuqIS0BDotiR-_xkdiMrYSzLRJLK8gJB6r5WFOL0JaqmtvJ9hQX5boR6UH9L6QYQeWb1to69poiQ8eSG_SFxxNzqzCGYg1ZwVxZlKYRuGvl4oivgiDRK0xxtF3ERw_O-hhEaQD2GpI");
             _db = new SQLiteAsyncConnection(_dbPath);
             _db.CreateTableAsync<User>().Wait();
-            Task.Run(() => UploadDatabaseToDropbox("/Project_D", "local_db.db"));
+        }
+        public async Task DownloadDatabaseFromDropbox(string folder, string fileName)
+        {
+            try
+            {
+                var response = await _dbx.Files.DownloadAsync(folder + "/" + fileName);
+                using (var fileContentStream = await response.GetContentAsStreamAsync())
+                {
+                    using (var fileStream = new FileStream(_dbPath, FileMode.Create, FileAccess.Write))
+                    {
+                        await fileContentStream.CopyToAsync(fileStream);
+                    }
+                }
+                Console.WriteLine("Downloaded {0}/{1}", folder, fileName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Download failed: " + ex.Message);
+            }
         }
 
         public async Task UploadDatabaseToDropbox(string folder, string fileName)
@@ -33,13 +48,12 @@ namespace Project_D
             {
                 using (var fileStream = new FileStream(_dbPath, FileMode.Open, FileAccess.Read))
                 {
-                    var updated = await _dbx.Files.UploadAsync(
+                    await _dbx.Files.UploadAsync(
                         folder + "/" + fileName,
                         WriteMode.Overwrite.Instance,
                         body: fileStream);
-
-                    Console.WriteLine("Saved {0}/{1} rev {2}", folder, fileName, updated.Rev);
                 }
+                Console.WriteLine("Saved {0}/{1}", folder, fileName);
             }
             catch (Exception ex)
             {
@@ -62,19 +76,24 @@ namespace Project_D
             return _db.Table<User>().Where(x => x.Email == email).FirstOrDefaultAsync();
         }
 
-        public Task Create(User user)
+        public async Task Create(User user)
         {
-            //update the database in dropbox
-            Task.Run(() => UploadDatabaseToDropbox("/Project_D", "local_db.db"));
-            return _db.InsertAsync(user);
+            await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName);
+            await _db.InsertAsync(user);
+            await UploadDatabaseToDropbox("/Project_D", DatabaseConfig.DatabaseName);
         }
 
-        public Task Update(User user)
+        public async Task Update(User user)
         {
-            //update the database in dropbox
-            Task.Run(() => UploadDatabaseToDropbox("/Project_D", "local_db.db"));
-            return _db.UpdateAsync(user);
+            await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName);
+            await _db.UpdateAsync(user);
+            await UploadDatabaseToDropbox("/Project_D", DatabaseConfig.DatabaseName);
         }
+    }
+    public static class DatabaseConfig
+    {
+        public const string DatabaseName = "app.db";
+        public static string DatabasePath => Path.Combine(FileSystem.AppDataDirectory, DatabaseName);
     }
 
 }
