@@ -52,40 +52,24 @@ namespace Project_D
                 return;
             }
 
-            // Check if email already exists
-            var existingUser = await SignupManager.GetUserByEmail(user.Email);
+            var dbService = new LocalDbService();
+            var existingUser = await dbService.GetByEmail(user.Email);
             if (existingUser != null)
             {
                 await DisplayAlert("Error", "Email already exists", "OK");
                 return;
             }
 
-            // Check for valid email format'
-            var emailPattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-            var emailRegex = new Regex(emailPattern);
-            if (!emailRegex.IsMatch(user.Email))
-            {
-                await DisplayAlert("Error", "Invalid email format", "OK");
-                return;
-            }
-           
-
-            await SignupManager.SaveSignupData(user);
+            await dbService.Create(user);
 
             FullnameEntry.Text = string.Empty;
             EmailEntry.Text = string.Empty;
             PasswordEntry.Text = string.Empty;
 
-            DisplayAlert("Success", "Signup successful!", "OK");
-
-            //  navigate to a success page/ home page
+            await DisplayAlert("Success", "Signup successful!", "OK");
 
             await Navigation.PushAsync(new HomePage(user));
-
-
-
-            // Navigate to a success page/ home page
-            /* await Navigation.PushAsync(new SettingsPage(user));*/
         }
     }
+
 }
