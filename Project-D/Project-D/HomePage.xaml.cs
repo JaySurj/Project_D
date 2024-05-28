@@ -73,7 +73,7 @@ namespace Project_D
         // Event handlers for button clicks
         private void OnButton1Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new BPMPage());
+            Navigation.PushAsync(new BPMPage(_user));
         }
 
         private void OnButton2Clicked(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Dropbox.Api;
 using Microsoft.Maui.Devices;
+using Project_D;
 
 public class MyAndroidMessageHandler : HttpClientHandler
 {
@@ -18,18 +19,16 @@ public class MyAndroidMessageHandler : HttpClientHandler
 }
 
 public static class DropboxClientFactory
-{
-    private const string AccessToken = "sl.B2Co7f-lbnKfyc-OKac4Ue6ylfvflmfe2i-eafSZdc0MufOKileTw099rj_I48csgBLk9DBRfvRnuzNzGS4mroV5KkwlaDJAPKbJUYIz7F2mJHOY6uzLX6RSdaJTHFyy_T7vCKO65atvjSM";
-
+{   
     public static DropboxClient GetClient()
     {
         if (DeviceInfo.Current.Platform == DevicePlatform.Android)
         {
-            return new DropboxClient(AccessToken, new DropboxClientConfig()
+            return new DropboxClient(DropboxAPIToken.Token, new DropboxClientConfig()
             {
                 HttpClient = new HttpClient(new MyAndroidMessageHandler())
             });
         }
-        return new DropboxClient(AccessToken);
+        return new DropboxClient(DropboxAPIToken.Token);
     }
 }

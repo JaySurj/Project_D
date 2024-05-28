@@ -3,13 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.BPMPage"
              Title="BPMPage">
-    <VerticalStackLayout>
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10">
+            <Label Text="BPM Monitor"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   TextColor="Black"
+                   FontAttributes="Bold" />
 
-        <Label x:Name="BpmLabel" FontSize="24" HorizontalOptions="Center" TextColor="Black"/>
-        <Label x:Name="HighBPM" FontSize="24" HorizontalOptions="Center" TextColor="Black"/>
+            <Label x:Name="BpmLabel"
+                   FontSize="18"
+                   TextColor="Black"
+                   VerticalOptions="Start" />
 
-        <Button Text="Generate BPMs" Clicked="OnGenerateBPMsClicked"/>
-        </StackLayout>
-    </VerticalStackLayout>
+            <Label x:Name="HighBPM"
+                   FontSize="18"
+                   TextColor="Black"
+                   VerticalOptions="Start" />
+
+            <Button Text="Generate BPMs"
+                    Clicked="OnGenerateBPMsClicked"
+                    BackgroundColor="#432C81"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
