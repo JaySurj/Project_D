@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.OptionsPage"
+             Title="OptionsPage">
+    <StackLayout>
+        <Label Text="Select an image:" />
+
+        <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="100" WidthRequest="100">
+            <Button.ImageSource>
+                <FileImageSource File="afbeelding_1.jpg" />
+            </Button.ImageSource>
+        </Button>
+        <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="100" WidthRequest="100">
+            <Button.ImageSource>
+                <FileImageSource File="afbeelding_2.jpg" />
+            </Button.ImageSource>
+        </Button>
+        <Button Clicked="Select_Image" CommandParameter="2" HeightRequest="100" WidthRequest="100">
+            <Button.ImageSource>
+                <FileImageSource File="afbeelding_3.jpg" />
+            </Button.ImageSource>
+        </Button>
+
+        <Label Text="Select a sound:" />
+        <Button Text="Sound 1" Clicked="Select_Sound" CommandParameter="0" />
+        <Button Text="Sound 2" Clicked="Select_Sound" CommandParameter="1" />
+        <Button Text="Sound 3" Clicked="Select_Sound" CommandParameter="2" />
+
+
+        <Label Text="Enter a quote:" />
+        <Entry x:Name="QuoteEntry" />
+        <Button Text="Save" Clicked="Save_Selection" />
+
+
+        <Button Text="Display Saved Selection" Clicked="Display_Selection" />
+
+        
+    </StackLayout>
+</ContentPage>
