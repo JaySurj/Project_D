@@ -22,39 +22,39 @@ namespace Project_D
         }
 
         private async void InitializeDatabase()
-{
-    try
-    {
-        _dbx = DropboxClientFactory.GetClient();
-
-        // Ensure directory exists
-        var directory = Path.GetDirectoryName(_databasePath);
-        if (!Directory.Exists(directory))
         {
-            Directory.CreateDirectory(directory);
+            try
+            {
+                _dbx = DropboxClientFactory.GetClient();
+
+                // Ensure directory exists
+                var directory = Path.GetDirectoryName(_databasePath);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                // Check if the Dropbox folder is empty
+                var listFolderResponse = await _dbx.Files.ListFolderAsync("/Project_D");
+                if (listFolderResponse.Entries.Count == 0)
+                {
+                    // Wipe clean the local database
+                    await WipeLocalDatabase();
+                    return;
+                }
+
+                // Not empty, proceed with downloading the database
+                await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
+                _connection = new SQLiteAsyncConnection(_databasePath);
+
+                // Ensure the admin account exists
+                await EnsureAdminAccount();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"An error occurred while initializing database: {ex.Message}", "OK");
+            }
         }
-
-        // Check if the Dropbox folder is empty
-        var listFolderResponse = await _dbx.Files.ListFolderAsync("/Project_D");
-        if (listFolderResponse.Entries.Count == 0)
-        {
-            // Wipe clean the local database
-            await WipeLocalDatabase();
-            return;
-        }
-
-        // Not empty, proceed with downloading the database
-        await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
-        _connection = new SQLiteAsyncConnection(_databasePath);
-
-        // Ensure the admin account exists
-        await EnsureAdminAccount();
-    }
-    catch (Exception ex)
-    {
-        await DisplayAlert("Error", $"An error occurred while initializing database: {ex.Message}", "OK");
-    }
-}
 
 
         private async Task WipeLocalDatabase()
@@ -114,7 +114,7 @@ namespace Project_D
                     adminUser = new User
                     {
                         Email = adminEmail,
-                        Password = "adminpassword" 
+                        Password = "adminpassword"
                     };
                     await _connection.InsertAsync(adminUser);
                     DisplayAlert("Info", "Admin account created.", "OK");
@@ -137,7 +137,7 @@ namespace Project_D
                     using (var memStream = new MemoryStream())
                     {
                         await fileStream.CopyToAsync(memStream);
-                        memStream.Position = 0; 
+                        memStream.Position = 0;
 
                         var updated = await _dbx.Files.UploadAsync(
                             folder + "/" + fileName,
@@ -184,7 +184,7 @@ namespace Project_D
                 {
                     await DisplayAlert("Error", "Invalid email or password.", "OK");
                 }
-                
+
 
                 if (user != null)
                 {
@@ -201,6 +201,10 @@ namespace Project_D
             {
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
+        }
+        private async void SignUp(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
         }
     }
 }
