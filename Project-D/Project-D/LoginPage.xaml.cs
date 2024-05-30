@@ -202,9 +202,5 @@ namespace Project_D
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
         }
-        private async void SignUp(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SignupPage());
-        }
     }
 }

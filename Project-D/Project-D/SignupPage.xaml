@@ -105,17 +105,13 @@
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
                     <Label Text="Already have an account? "
-                           TextColor="#82799D"
-                           FontSize="15"
-                           FontFamily="Raleway" />
-                    <Label Text=" Log In"
                            TextColor="#432C81"
-                           FontSize="15"
-                           FontFamily="Raleway">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="GoToLogIn" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                           FontSize="13"
+                           FontFamily="Raleway" />
+                    <Label Text="Log in"
+                           TextColor="#432C81"
+                           FontSize="13"
+                           FontFamily="Raleway" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
