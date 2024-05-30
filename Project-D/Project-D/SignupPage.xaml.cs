@@ -70,6 +70,11 @@ namespace Project_D
 
             await Navigation.PushAsync(new HomePage(user));
         }
+
+        private async void GoToLogIn(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 
 }
