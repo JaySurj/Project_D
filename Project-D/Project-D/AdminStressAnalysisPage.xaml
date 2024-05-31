@@ -2,10 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.AdminStressAnalysisPage"
              Title="AdminStressAnalysisPage">
+             
 
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Admin Overview"
+            <Label Text="Admin Overview Page"
                    HorizontalOptions="Center"
                    FontSize="Large"
                    Margin="0,0,0,10"/>
