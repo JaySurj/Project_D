@@ -12,7 +12,6 @@ namespace Project_D
 
     public class User
     {
-
         [PrimaryKey]
         [AutoIncrement]
         [SQLite.Column("id")]
@@ -26,6 +25,5 @@ namespace Project_D
 
         [SQLite.Column("password")]
         public string Password { get; set; }
-
     }
 }
