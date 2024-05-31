@@ -21,13 +21,21 @@ namespace Project_D
                 Console.WriteLine($"Database path: {dbPath}");
                 var users = await DatabaseHelper.GetUsersAsync(dbPath);
 
-                foreach (var user in users)
+                if (users != null && users.Count > 0)
                 {
-                    // Changed FullName to Fullname
-                    Console.WriteLine($"User: {user.Fullname}, Email: {user.Email}");
-                }
+                    foreach (var user in users)
+                    {
+                        Console.WriteLine($"User: {user.Fullname}, Email: {user.Email}");
+                    }
 
-                UsersListView.ItemsSource = users;
+                    // Set the ItemsSource for the ListView
+                    UsersListView.ItemsSource = users;
+                }
+                else
+                {
+                    Console.WriteLine("No users found in the database.");
+                    await DisplayAlert("Info", "No users found in the database.", "OK");
+                }
             }
             catch (Exception ex)
             {
@@ -37,4 +45,5 @@ namespace Project_D
         }
     }
 }
+
 

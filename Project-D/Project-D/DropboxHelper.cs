@@ -15,6 +15,7 @@ namespace Project_D
                 var fileContent = await response.GetContentAsByteArrayAsync();
                 var localPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "app.db");
                 File.WriteAllBytes(localPath, fileContent);
+                Console.WriteLine($"Database downloaded to: {localPath}");
                 return localPath;
             }
         }

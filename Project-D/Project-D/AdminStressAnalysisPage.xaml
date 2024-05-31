@@ -5,7 +5,7 @@
 
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Admin Overview Page"
+            <Label Text="Admin Overview List"
                    HorizontalOptions="Center"
                    FontSize="Large"
                    Margin="0,0,0,10"/>
@@ -16,12 +16,12 @@
             <ListView x:Name="UsersListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!-- Changed FullName to Fullname -->
                         <TextCell Text="{Binding Fullname}"
-                                Detail="{Binding Email}"/>
+                                  Detail="{Binding Email}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+

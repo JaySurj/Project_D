@@ -12,8 +12,7 @@ namespace Project_D
 
     public class User
     {
-        [PrimaryKey]
-        [AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         [SQLite.Column("id")]
         public int Id { get; set; }
 
