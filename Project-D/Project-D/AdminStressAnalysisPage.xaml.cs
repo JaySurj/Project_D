@@ -23,7 +23,8 @@ namespace Project_D
 
                 foreach (var user in users)
                 {
-                    Console.WriteLine($"User: {user.FullName}, Email: {user.Email}");
+                    // Changed FullName to Fullname
+                    Console.WriteLine($"User: {user.Fullname}, Email: {user.Email}");
                 }
 
                 UsersListView.ItemsSource = users;
@@ -34,12 +35,6 @@ namespace Project_D
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
-    }
-
-    public class User
-    {
-        public string FullName { get; set; }
-        public string Email { get; set; }
     }
 }
 
