@@ -2,10 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.AdminStressAnalysisPage"
              Title="AdminStressAnalysisPage">
+             
 
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Admin Overview 2"
+            <Label Text="Admin Overview Page"
                    HorizontalOptions="Center"
                    FontSize="Large"
                    Margin="0,0,0,10"/>
@@ -13,33 +14,13 @@
                    HorizontalOptions="Center"
                    FontSize="Medium"
                    Margin="0,0,0,20"/>
-            <Frame BorderColor="#ccc"
-                   CornerRadius="5"
-                   Padding="20">
-                <StackLayout>
-                    <Label Text="Stress Level Overview"
-                           FontSize="Large"
-                           Margin="0,0,0,10"/>
-                    <StackLayout Margin="0,0,0,20">
-                        <Label Text="Your Stress Level:"
-                               FontAttributes="Bold"/>
-                        <Label Text="High"/>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,20">
-                        <Label Text="Recent Stress Patterns:"
-                               FontAttributes="Bold"/>
-                        <Label Text="Increasing"/>
-                    </StackLayout>
-                    <StackLayout Margin="0,0,0,20">
-                        <Label Text="Recommended Action:"
-                               FontAttributes="Bold"/>
-                        <Label Text="Practice mindfulness exercises"/>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
-            <Label Text="More features and insights coming soon!"
-                   HorizontalOptions="Center"
-                   FontSize="Medium"/>
+            <ListView x:Name="UsersListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Fullname}" Detail="{Binding Email}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
