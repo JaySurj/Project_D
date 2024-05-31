@@ -8,6 +8,6 @@ namespace Project_D
 {
     class DropboxAPIToken
     {
-        public static string Token = "sl.B2T7f31IIR7-P87Yl1-QdpECioZkPHn0YuDrNWiiZa_6rN4eCFyrnllitAxu5jJrTNBBGqLfljS2H8Z7ZvVsbmPIAp506PpNZxOILbOU6zE6zdg-QwPrT_G2bPfdhWKEctcAVHwQbUrZwf8";
+        public static string Token = "sl.B2TG0XXph5nJQrRkGm_PUZxWs5SPaH0HaLPgVwmwr180m8AtcKyWIOZgPvo8KzPFsRP3Uf5OUYd31xYtVfB97dZ8fsy9yS5s9sx51NFUdJ75PyN8hhMejL48U-Vg5gBEutmwTGc5zm6xgKE";
     }
 }
