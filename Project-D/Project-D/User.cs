@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project_D
 {
+    //user information
     [SQLite.Table("user")]
 
     public class User
