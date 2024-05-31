@@ -21,7 +21,7 @@ namespace Project_D
                 var users = await DatabaseHelper.GetUsersAsync(dbPath);
                 UsersListView.ItemsSource = users;
             }
-            
+
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Failed to load users: {ex.Message}", "OK");
