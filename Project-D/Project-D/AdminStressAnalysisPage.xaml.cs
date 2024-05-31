@@ -17,8 +17,15 @@ namespace Project_D
         {
             try
             {
-                var dbPath = await DropboxHelper.DownloadDatabaseAsync();
+                // Define Dropbox file path and local file name
+                string dropboxFilePath = "/Project_D/app.db";
+                string localFileName = "app.db";
+
+                // Download the database from Dropbox
+                var dbPath = await DropboxHelper.DownloadDatabaseAsync(dropboxFilePath, localFileName);
                 Console.WriteLine($"Database path: {dbPath}");
+
+                // Get users from the database
                 var users = await DatabaseHelper.GetUsersAsync(dbPath);
 
                 if (users != null && users.Count > 0)
