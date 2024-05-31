@@ -5,7 +5,7 @@
 
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Text="Admin Overview List"
+            <Label Text="Admin Overview Client List"
                    HorizontalOptions="Center"
                    FontSize="Large"
                    Margin="0,0,0,10"/>
@@ -24,4 +24,5 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
 

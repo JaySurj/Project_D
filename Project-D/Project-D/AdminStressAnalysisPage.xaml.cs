@@ -11,21 +11,21 @@ namespace Project_D
         {
             InitializeComponent();
             LoadUsers();
+
+            // Subscribe to item selected event
+            UsersListView.ItemSelected += OnItemSelected;
         }
 
         private async void LoadUsers()
         {
             try
             {
-                // Define Dropbox file path and local file name
                 string dropboxFilePath = "/Project_D/app.db";
                 string localFileName = "app.db";
 
-                // Download the database from Dropbox
                 var dbPath = await DropboxHelper.DownloadDatabaseAsync(dropboxFilePath, localFileName);
                 Console.WriteLine($"Database path: {dbPath}");
 
-                // Get users from the database
                 var users = await DatabaseHelper.GetUsersAsync(dbPath);
 
                 if (users != null && users.Count > 0)
@@ -35,7 +35,6 @@ namespace Project_D
                         Console.WriteLine($"User: {user.Fullname}, Email: {user.Email}");
                     }
 
-                    // Set the ItemsSource for the ListView
                     UsersListView.ItemsSource = users;
                 }
                 else
@@ -48,6 +47,18 @@ namespace Project_D
             {
                 await DisplayAlert("Error", $"Failed to load users: {ex.Message}", "OK");
                 Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem is User selectedUser)
+            {
+                // Deselect the item
+                UsersListView.SelectedItem = null;
+
+                // Navigate to AdminClientAnalysisPage
+                await Navigation.PushAsync(new AdminClientAnalysisPage(selectedUser));
             }
         }
     }
