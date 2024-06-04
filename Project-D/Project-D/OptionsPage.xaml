@@ -15,7 +15,7 @@
                 </Button.ImageSource>
             </Button>
 
-            <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="12" WidthRequest="12">
+            <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="12" WidthReq  uest="12">
                 <Button.ImageSource>
                     <FileImageSource File="afbeelding_2.jpg" />
                 </Button.ImageSource>
