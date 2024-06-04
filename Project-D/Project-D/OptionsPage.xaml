@@ -3,20 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.OptionsPage"
              Title="OptionsPage">
-    <StackLayout>
-        <Label Text="Select an image:" />
 
-        <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="100" WidthRequest="100">
+    <StackLayout>
+        <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="3" WidthRequest="3">
             <Button.ImageSource>
                 <FileImageSource File="afbeelding_1.jpg" />
             </Button.ImageSource>
         </Button>
-        <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="100" WidthRequest="100">
+        <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="3" WidthRequest="2">
             <Button.ImageSource>
                 <FileImageSource File="afbeelding_2.jpg" />
             </Button.ImageSource>
         </Button>
-        <Button Clicked="Select_Image" CommandParameter="2" HeightRequest="100" WidthRequest="100">
+        <Button Clicked="Select_Image" CommandParameter="2" HeightRequest="3" WidthRequest="2">
             <Button.ImageSource>
                 <FileImageSource File="afbeelding_3.jpg" />
             </Button.ImageSource>
