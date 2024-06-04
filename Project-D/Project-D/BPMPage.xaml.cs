@@ -35,9 +35,6 @@ namespace Project_D
             {
                 int bpm = random.Next(50, 130); // Random BPM between 50 and 130
                 _heartbeatData.Add((i, bpm)); // Assign interval index and BPM value
-
-                // Add a delay of 1 second
-                await Task.Delay(200);
             }
         }
 
@@ -48,6 +45,8 @@ namespace Project_D
             ProcessHeartbeatData();
             SaveDataToJson();
 
+            // Navigate to NotificationPage
+            await Navigation.PushAsync(new NotificationPage(_currentUser));
         }
 
         private async void ProcessHeartbeatData()
@@ -65,7 +64,7 @@ namespace Project_D
             };
 
             _dbService.SaveHeartbeatAsync(heartbeat).Wait();
-             await _dbService.Update(heartbeat);
+            await _dbService.Update(heartbeat);
 
             // Display average BPM
             MainThread.BeginInvokeOnMainThread(async () =>
@@ -91,30 +90,65 @@ namespace Project_D
 
         private void SaveDataToJson()
         {
-            var userData = new
+            var userData = new UserData
             {
                 UserId = _currentUser.Id,
                 Fullname = _currentUser.Fullname,
                 Email = _currentUser.Email,
-                HeartbeatData = _heartbeatData.ConvertAll(d => new { Time = TimeFromInterval(d.Interval), d.BPM })
+                HeartbeatData = _heartbeatData.ConvertAll(d => new HeartbeatData { Time = TimeFromInterval(d.Interval), BPM = d.BPM })
             };
 
-            string json = JsonSerializer.Serialize(userData, new JsonSerializerOptions { WriteIndented = true });
+            var notificationData = new UserNotification
+            {
+                UserId = _currentUser.Id,
+                AvgBPM = _heartbeatData.Sum(d => d.BPM) / _heartbeatData.Count,
+                NotificationId = Guid.NewGuid().ToString(),
+                ShowNotification = true
+            };
 
-            string localFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_bpm_data.json");
-            File.WriteAllText(localFilePath, json);
-
-            // Upload the JSON to Dropbox
-            UploadJsonToDropbox(localFilePath);
+            string dropboxFolderPath = "/Json";
+            SaveOrAppendJson("user_bpm_data.json", userData, dropboxFolderPath);
+            SaveOrAppendJson("user_notification_data.json", notificationData, dropboxFolderPath);
         }
 
-        private async Task UploadJsonToDropbox(string localFilePath)
+        private void SaveOrAppendJson<T>(string filename, T data, string dropboxFolderPath)
+        {
+            string localFilePath = Path.Combine(FileSystem.AppDataDirectory, filename);
+            List<T> dataList;
+
+            if (File.Exists(localFilePath))
+            {
+                string existingJson = File.ReadAllText(localFilePath);
+                try
+                {
+                    dataList = System.Text.Json.JsonSerializer.Deserialize<List<T>>(existingJson) ?? new List<T>();
+                }
+                catch
+                {
+                    // If deserialization fails, reset the file to an empty list
+                    dataList = new List<T>();
+                }
+            }
+            else
+            {
+                dataList = new List<T>();
+            }
+
+            dataList.Add(data);
+
+            string newJson = System.Text.Json.JsonSerializer.Serialize(dataList, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(localFilePath, newJson);
+
+            UploadJsonToDropbox(localFilePath, dropboxFolderPath);
+        }
+
+        private async Task UploadJsonToDropbox(string localFilePath, string dropboxFolderPath)
         {
             try
             {
-                string dropboxFilePath = "/user_bpm_data.json"; // Path in Dropbox
+                // Ensure the dropboxFilePath includes the folder path
+                string dropboxFilePath = $"{dropboxFolderPath}/{Path.GetFileName(localFilePath)}"; // Path in Dropbox
                 await LocalDbService.UploadFileAsync(localFilePath, dropboxFilePath);
-                await DisplayAlert("Success", "JSON file uploaded to Dropbox successfully.", "OK");
             }
             catch (Exception ex)
             {
@@ -122,4 +156,6 @@ namespace Project_D
             }
         }
     }
+
+   
 }
