@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.NotificationPage"
              Title="Notifications">
+
     <ScrollView>
-        <StackLayout x:Name="NotificationLayout"
-                     Padding="10">
-            <!-- Notifications will be dynamically added here -->
+        <StackLayout x:Name="NotificationLayout">
         </StackLayout>
     </ScrollView>
+
 </ContentPage>
