@@ -8,7 +8,6 @@ namespace Project_D
 {
     class DropboxAPIToken
     {
-
         public static string Token = "sl.B2j2b6vGRKqBfpPUuu5jrX6Rl_LUJJEgNtsawkynZRLgCiFJbAOh5489j3yYmzZ9eyO4kODWRjIXBVhrSsEMhSI81bhlqriHorpdachacqOBJKMRa8Ok7PteoAAhc8fOhkAkpkdfdk_Tkvc";
         private readonly DropboxClient _dbx = new DropboxClient(Token);
 

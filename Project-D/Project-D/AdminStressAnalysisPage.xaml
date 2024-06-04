@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.AdminStressAnalysisPage"
+             Title="AdminStressAnalysisPage">
+             
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Admin Overview Page"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Margin="0,0,0,10"/>
+            <Label Text="List Of Clients"
+                   HorizontalOptions="Center"
+                   FontSize="Medium"
+                   Margin="0,0,0,20"/>
+            <ListView x:Name="UsersListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Fullname}" Detail="{Binding Email}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
