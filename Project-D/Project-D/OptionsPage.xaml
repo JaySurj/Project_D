@@ -9,13 +9,13 @@
             <Label Text="Select an image:" />
             <Switch x:Name="ImageSwitch" Toggled="Toggle_Image" />
 
-            <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="100" WidthRequest="100">
+            <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="12" WidthRequest="12">
                 <Button.ImageSource>
                     <FileImageSource File="afbeelding_1.jpg" />
                 </Button.ImageSource>
             </Button>
 
-            <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="100" WidthRequest="100">
+            <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="12" WidthRequest="12">
                 <Button.ImageSource>
                     <FileImageSource File="afbeelding_2.jpg" />
                 </Button.ImageSource>
