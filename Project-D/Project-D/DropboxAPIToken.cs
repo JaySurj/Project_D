@@ -9,7 +9,7 @@ namespace Project_D
     class DropboxAPIToken
     {
 
-        public static string Token = "sl.B2gcoA_72p99cb8HgYUMliPm-co8x5gzd8LhFknGWN4GJEFdAO2lJ3C7dFjtsARuYnIduJk4hoDX5WaNGX_bArmTNci-uGZsPMQnGuum_rc5Pqne7oGctJCEONj2RJ05Qm4zPl2gziRp-7c";
+        public static string Token = "sl.B2mThBUpIG-mdkLVMrGEQxx3o6wmHxbHLn9WF8m6zXZTuqOVEQSzunjOu57WAbrzUCaLE_vehrnJ-ysWx64NdYJUq_VcTRG0VnC-i_d1rhV31cUyUN9M0tXgjVUNlZAHEJuHmpDaMkefo-M";
         private readonly DropboxClient _dbx = new DropboxClient(Token);
 
         public async Task DownloadFileFromDropbox(string dropboxFolder, string dropboxFileName, string localFilename)
