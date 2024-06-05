@@ -28,4 +28,12 @@ namespace Project_D
         public string Password { get; set; }
 
     }
+
+    public class UserData
+    {
+        public int UserId { get; set; }
+        public string Fullname { get; set; }
+        public string Email { get; set; }
+        public List<HeartbeatData> HeartbeatData { get; set; }
+    }
 }
