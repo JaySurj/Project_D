@@ -8,6 +8,7 @@ namespace Project_D
     {
         public static async Task<List<User>> GetUsersAsync(string dbPath)
         {
+            //getuserAsync
             var db = new SQLiteAsyncConnection(dbPath);
             return await db.Table<User>().ToListAsync();
         }
