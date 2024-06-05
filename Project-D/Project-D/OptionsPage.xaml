@@ -3,38 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.OptionsPage"
              Title="OptionsPage">
-    <StackLayout>
-        <Label Text="Select an image:" />
 
-        <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="100" WidthRequest="100">
-            <Button.ImageSource>
-                <FileImageSource File="afbeelding_1.jpg" />
-            </Button.ImageSource>
-        </Button>
-        <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="100" WidthRequest="100">
-            <Button.ImageSource>
-                <FileImageSource File="afbeelding_2.jpg" />
-            </Button.ImageSource>
-        </Button>
-        <Button Clicked="Select_Image" CommandParameter="2" HeightRequest="100" WidthRequest="100">
-            <Button.ImageSource>
-                <FileImageSource File="afbeelding_3.jpg" />
-            </Button.ImageSource>
-        </Button>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Select an image:" />
+            <Switch x:Name="ImageSwitch" Toggled="Toggle_Image" />
 
-        <Label Text="Select a sound:" />
-        <Button Text="Sound 1" Clicked="Select_Sound" CommandParameter="0" />
-        <Button Text="Sound 2" Clicked="Select_Sound" CommandParameter="1" />
-        <Button Text="Sound 3" Clicked="Select_Sound" CommandParameter="2" />
+            <Button Clicked="Select_Image" CommandParameter="0" HeightRequest="12" WidthRequest="12">
+                <Button.ImageSource>
+                    <FileImageSource File="afbeelding_1.jpg" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button Clicked="Select_Image" CommandParameter="1" HeightRequest="12" WidthRequest="12">
+                <Button.ImageSource>
+                    <FileImageSource File="afbeelding_2.jpg" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button Clicked="Select_Image" CommandParameter="2" HeightRequest="100" WidthRequest="100">
+                <Button.ImageSource>
+                    <FileImageSource File="afbeelding_3.jpg" />
+                </Button.ImageSource>
+            </Button>
+
+
+
+            <Switch x:Name="SoundSwitch" Toggled="Toggle_Sound" />
+
+            <Label Text="Select a sound:" />
+            <Button Text="Sound 1" Clicked="Select_Sound" CommandParameter="0" />
+            <Button Text="Sound 2" Clicked="Select_Sound" CommandParameter="1" />
+            <Button Text="Sound 3" Clicked="Select_Sound" CommandParameter="2" />
+
 
 
         <Label Text="Enter a quote:" />
-        <Entry x:Name="QuoteEntry" />
-        <Button Text="Save" Clicked="Save_Selection" />
+            <Switch x:Name="QuoteSwitch" Toggled="Toggle_Quote" />
+            <Entry x:Name="QuoteEntry" />
+            <Button Text="Save" Clicked="Save_Selection" />
 
 
-        <Button Text="Display Saved Selection" Clicked="Display_Selection" />
 
-        
-    </StackLayout>
+            <Button Text="Display Saved Selection" Clicked="Display_Selection" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
