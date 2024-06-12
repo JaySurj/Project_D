@@ -100,17 +100,29 @@ namespace Project_D
 
         public void AddNotification(UserNotification notification)
         {
+            Color _bgc;
+
+            if (notification.NotificationType == "HighBPM")
+            {
+                _bgc = Color.FromRgb(255, 171, 175);
+            }
+            else
+            {
+                _bgc = Colors.White;
+            }
+
             var frame = new Frame
             {
                 BorderColor = Colors.Gray,
                 CornerRadius = 5,
+                BackgroundColor = _bgc,
                 Margin = new Thickness(10),
                 Content = new StackLayout
                 {
                     Children =
                     {
                         new Label { Text = notification.NotificationType == "HighBPM" ? "High BPM Alert" : "BPM Data", FontAttributes = FontAttributes.Bold },
-                        new Label { Text = notification.NotificationType == "HighBPM" ? $"BPM at {notification.Time}: {notification.AvgBPM}" : $"Today's average BPM: {notification.AvgBPM}" }
+                        new Label { Text = notification.NotificationType == "HighBPM" ? $"BPM at {notification.Time} on {notification.Date}: {notification.AvgBPM}" : $"Today's average BPM: {notification.AvgBPM}" }
                     }
                 }
             };
@@ -156,6 +168,8 @@ namespace Project_D
         public string NotificationId { get; set; }
         public bool ShowNotification { get; set; }
         public string NotificationType { get; set; } // New property for notification type
+
+        public string Date { get; set; } // Optional: For date-specific notifications
         public string Time { get; set; } // Optional: For time-specific notifications
     }
 }
