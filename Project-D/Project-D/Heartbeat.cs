@@ -16,4 +16,9 @@ namespace Project_D
 
         public int AvgBPM { get; set; }
     }
+    public class HeartbeatData
+    {
+        public string Time { get; set; }
+        public int BPM { get; set; }
+    }
 }

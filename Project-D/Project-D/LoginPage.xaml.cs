@@ -22,39 +22,39 @@ namespace Project_D
         }
 
         private async void InitializeDatabase()
-{
-    try
-    {
-        _dbx = DropboxClientFactory.GetClient();
-
-        // Ensure directory exists
-        var directory = Path.GetDirectoryName(_databasePath);
-        if (!Directory.Exists(directory))
         {
-            Directory.CreateDirectory(directory);
+            try
+            {
+                _dbx = DropboxClientFactory.GetClient();
+
+                // Ensure directory exists
+                var directory = Path.GetDirectoryName(_databasePath);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                // Check if the Dropbox folder is empty
+                var listFolderResponse = await _dbx.Files.ListFolderAsync("/Project_D");
+                if (listFolderResponse.Entries.Count == 0)
+                {
+                    // Wipe clean the local database
+                    await WipeLocalDatabase();
+                    return;
+                }
+
+                // Not empty, proceed with downloading the database
+                await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
+                _connection = new SQLiteAsyncConnection(_databasePath);
+
+                // Ensure the admin account exists
+                await EnsureAdminAccount();
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"An error occurred while initializing database: {ex.Message}", "OK");
+            }
         }
-
-        // Check if the Dropbox folder is empty
-        var listFolderResponse = await _dbx.Files.ListFolderAsync("/Project_D");
-        if (listFolderResponse.Entries.Count == 0)
-        {
-            // Wipe clean the local database
-            await WipeLocalDatabase();
-            return;
-        }
-
-        // Not empty, proceed with downloading the database
-        await DownloadDatabaseFromDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
-        _connection = new SQLiteAsyncConnection(_databasePath);
-
-        // Ensure the admin account exists
-        await EnsureAdminAccount();
-    }
-    catch (Exception ex)
-    {
-        await DisplayAlert("Error", $"An error occurred while initializing database: {ex.Message}", "OK");
-    }
-}
 
 
         private async Task WipeLocalDatabase()
@@ -65,7 +65,6 @@ namespace Project_D
                 if (File.Exists(_databasePath))
                 {
                     File.Delete(_databasePath);
-                    await DisplayAlert("Info", "Local database wiped clean.", "OK");
                 }
             }
             catch (Exception ex)
@@ -88,7 +87,6 @@ namespace Project_D
                     }
                 }
 
-                await DisplayAlert("Success", $"File downloaded: {fileName}", "OK");
             }
             catch (Dropbox.Api.ApiException<DownloadError> ex)
             {
@@ -114,10 +112,9 @@ namespace Project_D
                     adminUser = new User
                     {
                         Email = adminEmail,
-                        Password = "adminpassword" 
+                        Password = "adminpassword"
                     };
                     await _connection.InsertAsync(adminUser);
-                    DisplayAlert("Info", "Admin account created.", "OK");
                     // Upload the updated database back to Dropbox
                     await UploadDatabaseToDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
                 }
@@ -137,7 +134,7 @@ namespace Project_D
                     using (var memStream = new MemoryStream())
                     {
                         await fileStream.CopyToAsync(memStream);
-                        memStream.Position = 0; 
+                        memStream.Position = 0;
 
                         var updated = await _dbx.Files.UploadAsync(
                             folder + "/" + fileName,
@@ -184,23 +181,16 @@ namespace Project_D
                 {
                     await DisplayAlert("Error", "Invalid email or password.", "OK");
                 }
-                
-
-                if (user != null)
-                {
-                    await DisplayAlert("Success", "Login successful!", "OK");
-                    // Navigate to a success page/ home page
-                    await Navigation.PushAsync(new HomePage(user));
-                }
-                else
-                {
-                    await DisplayAlert("Error", "Invalid email or password.", "OK");
-                }
+   
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             }
+        }
+        private async void SignUp(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
         }
     }
 }
