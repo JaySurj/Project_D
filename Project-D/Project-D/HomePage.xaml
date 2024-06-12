@@ -46,32 +46,32 @@
                    FontSize="Medium"/>
 
             <!-- Add your home page content here -->
-            <Button Text="Your heart rate"
+            <Button Text="Heart rate ❤️"
                     Clicked="OnButton1Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"
                     TextColor="#432C81"
                     FontFamily="Raleway"/>
 
-            <Button Text="Your stress level"
+            <Button Text="Stress level 🦄"
                     Clicked="OnButton2Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"
                     TextColor="#432C81" />
 
-            <Button Text="result archive"
+            <Button Text="Notification 🔔"
                     Clicked="OnButton3Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"
                     TextColor="#432C81" />
 
-            <Button Text="Online Chat"
+            <Button Text="Prefrences 🤞"
                     Clicked="OnButton4Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"
                     TextColor="#432C81" />
 
-            <Button Text="Finding yourself"
+            <Button Text="Finding yourself 🪞"
                     Clicked="OnButton4Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"

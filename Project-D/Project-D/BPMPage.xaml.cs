@@ -190,6 +190,18 @@ namespace Project_D
             }
         }
 
+        private void NotificationButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new NotificationPage(_currentUser));
+        }
+
+        private void SettingsButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new SettingsPage(_currentUser));
+        }
+
         private async Task DownloadJsonFromDropbox(string filename, string dropboxFolderPath)
         {
             string localFilePath = Path.Combine(FileSystem.AppDataDirectory, filename);

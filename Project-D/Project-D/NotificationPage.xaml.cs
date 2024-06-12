@@ -83,6 +83,21 @@ namespace Project_D
             }
         }
 
+        private void NotificationButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new NotificationPage(_currentUser));
+
+        }
+
+        private void SettingsButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new SettingsPage(_currentUser));
+
+        }
+
+
         public void AddNotification(UserNotification notification)
         {
             var frame = new Frame

@@ -90,7 +90,7 @@ namespace Project_D
 
         private void OnButton3Clicked(object sender, EventArgs e)
         {
-            // Handle button click
+            Navigation.PushAsync(new NotificationPage(_user));
         }
 
         private void OnButton4Clicked(object sender, EventArgs e)
