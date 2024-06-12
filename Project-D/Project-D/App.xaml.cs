@@ -1,4 +1,6 @@
-﻿namespace Project_D
+﻿using Project_D.WearableConcept;
+
+namespace Project_D
 {
     public partial class App : Application
     {
@@ -6,9 +8,15 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
-            //MainPage = new NavigationPage(new AdminStressAnalysisPage());
-
+            if (DeviceInfo.Idiom == DeviceIdiom.Watch)
+            {
+                MainPage = new NavigationPage(new WatchHomePage());
+            }
+            else
+            {
+                MainPage = new AppShell();
+                //MainPage = new NavigationPage(new AdminStressAnalysisPage());
+            }
         }
     }
 }
