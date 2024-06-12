@@ -27,5 +27,17 @@ namespace Project_D
         [SQLite.Column("password")]
         public string Password { get; set; }
 
+        [SQLite.Column("quote")]
+        public string Quote { get; set; }
+
+        [SQLite.Column("image")]
+        public string Image { get; set; }
+
+        [SQLite.Column("sound")]
+        public string Sound { get; set; }
+
+
+
+
     }
 }
