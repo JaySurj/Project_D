@@ -2,11 +2,84 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.NotificationPage"
+             BackgroundColor="White"
              Title="Notifications">
 
-    <ScrollView>
-        <StackLayout x:Name="NotificationLayout">
-        </StackLayout>
-    </ScrollView>
+    <Grid>
+        <!-- Rows: 1 for greeting, 2 for content, 3 for navbar -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <!-- Grid with greeting message -->
+        <Grid Padding="10" HorizontalOptions="Start">
+            <Label TextColor="#432C81"
+           FontSize="Large"
+           VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="🔔 Notifications" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+
+        <!-- Profile icon in the top right corner -->
+        <Image Source="mindeaze.png"
+               HeightRequest="100"
+               WidthRequest="100"
+               VerticalOptions="Start"
+               HorizontalOptions="End"
+               Margin="0,10,10,0"
+               Grid.Row="0" />
+
+        <!-- StackLayout for the notifications content -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="10" Spacing="20" x:Name="NotificationLayout">
+                <!-- Add your notifications content here -->
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Navbar/Simple -->
+        <StackLayout
+            Grid.Row="2"
+            Orientation="Horizontal"
+            Padding="16,32"
+            Spacing="61"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="WhiteSmoke">
+
+            <!-- Icon/Home -->
+            <Image
+            Source="home_icon.png"
+            WidthRequest="24"
+            HeightRequest="24"
+            VerticalOptions="Center"/>
+
+            <!-- Icon/Chart -->
+            <Image
+            Source="chart_icon.png"
+            WidthRequest="24"
+            HeightRequest="24"
+            VerticalOptions="Center"/>
+
+            <!-- Icon/Bell -->
+            <ImageButton Clicked="NotificationButton_Clicked"
+            BackgroundColor="Transparent"
+            Source="bell_icon.png"
+            WidthRequest="24"
+            HeightRequest="24"
+            VerticalOptions="Center"/>
+
+            <!-- Icon/Setting -->
+            <ImageButton Clicked="SettingsButton_Clicked"
+             BackgroundColor="Transparent"
+             Source="setting_icon.png"
+             WidthRequest="24"
+             HeightRequest="24"
+             VerticalOptions="Center"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>

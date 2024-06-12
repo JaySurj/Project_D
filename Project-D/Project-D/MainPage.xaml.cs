@@ -17,6 +17,7 @@
         {
             Navigation.PushAsync(new SignupPage());
         }
+    
     }
 
 }
