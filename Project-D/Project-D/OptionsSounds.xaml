@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.OptionsSounds"
+             Title="OptionsSounds">
+
+    <StackLayout>
+        <Button Text="Sound 1" Clicked="OnSoundSelected" CommandParameter="1" />
+        <Button Text="Sound 2" Clicked="OnSoundSelected" CommandParameter="2" />
+        <Button Text="Sound 3" Clicked="OnSoundSelected" CommandParameter="3" />
+    </StackLayout>
+</ContentPage>

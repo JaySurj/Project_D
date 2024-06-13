@@ -65,7 +65,7 @@
                     BackgroundColor="#EDECF4"
                     TextColor="#432C81" />
 
-            <Button Text="Prefrences 🤞"
+            <Button Text="Preferences 🤞"
                     Clicked="OnButton4Clicked"
                     HeightRequest="80"
                     BackgroundColor="#EDECF4"

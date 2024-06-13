@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.OptionsPictures"
+             Title="OptionsPictures">
+
+    <StackLayout>
+        <ImageButton Source="afbeelding_1.jpg" Clicked="OnPictureSelected" CommandParameter="1" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
+        <ImageButton Source="afbeelding_2.jpg" Clicked="OnPictureSelected" CommandParameter="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
+        <ImageButton Source="afbeelding_3.jpg" Clicked="OnPictureSelected" CommandParameter="3" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
+    </StackLayout>
+</ContentPage>

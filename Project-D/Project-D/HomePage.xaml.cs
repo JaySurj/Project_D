@@ -86,6 +86,7 @@ namespace Project_D
         private void OnButton2Clicked(object sender, EventArgs e)
         {
             // Handle button click
+
         }
 
         private void OnButton3Clicked(object sender, EventArgs e)
@@ -96,6 +97,8 @@ namespace Project_D
         private void OnButton4Clicked(object sender, EventArgs e)
         {
             // Handle button click
+
+            Navigation.PushAsync(new OptionsPictures(_user));
         }
     }
 }
