@@ -86,7 +86,6 @@ namespace Project_D
         private void OnButton2Clicked(object sender, EventArgs e)
         {
             // Handle button click
-            Navigation.PushAsync(new OptionsPage(_user));
         }
 
         private void OnButton3Clicked(object sender, EventArgs e)
