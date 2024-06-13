@@ -31,5 +31,15 @@ namespace Project_D
         {
             Navigation.PushAsync(new AccountPage(_user));
         }
+
+        private void Notifications(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotificationPage(_user));
+        }
+
+        private void Preferences(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OptionsPage(_user));
+        }
     }
 }
