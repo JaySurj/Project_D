@@ -1,4 +1,4 @@
-﻿using Dropbox.Api;
+using Dropbox.Api;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Project_D
 {
+
     class DropboxAPIToken
     {
-
-        public static string Token = "sl.B29Ht6ekr9jSrnFTfkip7BlA9Ci7aHi3XhlLG1XB95s7OWVk_cqsMn6lQXCPtvxmBgqYR4bqTGrOqeDLO0XiHEBYx6OtmYuS645rzYLoR2pOcEtvJSAYk5m9mwY9BvrvnVhXbCZ3qMX3VRA";
+        public static string Token = "sl.B3Ai5YkiJvNUM9lx70I3lCRi_d5moPfvrqu6YiHoFqOiVV5q3tnzJ_iQL-1nxrCjimKwjoQTi_UFCr-h1wQRvgNb6Ml_eK8AlyPeyenLBNWySThLjEfDIv1vcAOn7xaVz-9ATMbftqDBpOI";
         private readonly DropboxClient _dbx = new DropboxClient(Token);
 
         public async Task DownloadFileFromDropbox(string dropboxFolder, string dropboxFileName, string localFilename)

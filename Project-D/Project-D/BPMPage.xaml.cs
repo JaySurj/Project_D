@@ -49,8 +49,16 @@ namespace Project_D
             ProcessHeartbeatData();
             await SaveDataToJson();
 
-            // Navigate to NotificationPage
-            await Navigation.PushAsync(new NotificationPage(_currentUser));
+            // if there is a bpm higher than 99 navigate to notification page
+            if (_heartbeatData.Any(d => d.BPM >= 100))
+            {
+                await Navigation.PushAsync(new CalmingPage());
+            }
+            else
+            {
+                // Navigate to NotificationPage
+                await Navigation.PushAsync(new NotificationPage(_currentUser));
+            }
         }
 
         private async void ProcessHeartbeatData()
@@ -120,6 +128,7 @@ namespace Project_D
                     NotificationId = Guid.NewGuid().ToString(),
                     ShowNotification = true,
                     NotificationType = "HighBPM",
+                    Date = _today,
                     Time = TimeFromInterval(d.Interval)
                 })
                 .ToList();
@@ -188,6 +197,18 @@ namespace Project_D
             {
                 await DisplayAlert("Error", $"Failed to upload JSON to Dropbox: {ex.Message}", "OK");
             }
+        }
+
+        private void NotificationButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new NotificationPage(_currentUser));
+        }
+
+        private void SettingsButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PushAsync(new SettingsPage(_currentUser));
         }
 
         private async Task DownloadJsonFromDropbox(string filename, string dropboxFolderPath)
