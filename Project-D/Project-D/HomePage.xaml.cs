@@ -69,6 +69,11 @@ namespace Project_D
            Navigation.PushAsync(new NotificationPage(_user));
         }
 
+        private void ChartButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChartPage());
+        }
+
         // INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
 
