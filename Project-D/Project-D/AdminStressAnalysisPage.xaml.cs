@@ -7,6 +7,8 @@ namespace Project_D
 {
     public partial class AdminStressAnalysisPage : ContentPage
     {
+        private User _user;
+
         public AdminStressAnalysisPage()
         {
             InitializeComponent();
@@ -61,7 +63,10 @@ namespace Project_D
                 await Navigation.PushAsync(new AdminClientAnalysisPage(selectedUser));
             }
         }
+
+        private void SettingsButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingsPage(_user));
+        }
     }
 }
-
-
