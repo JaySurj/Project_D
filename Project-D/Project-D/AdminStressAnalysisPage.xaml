@@ -1,28 +1,79 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.AdminStressAnalysisPage"
-             Title="AdminStressAnalysisPage">
+             BackgroundColor="White">
 
-    <ContentPage.Content>
-        <StackLayout Margin="20">
+    <Grid>
+        <!-- Rows: 1 for header, 2 for content, 3 for navbar -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with title -->
+        <StackLayout Grid.Row="0"
+                     Padding="20,10"
+                     BackgroundColor="#f5f5f5"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Center">
             <Label Text="Admin Overview Client List"
-                   HorizontalOptions="Center"
-                   FontSize="Large"
-                   Margin="0,0,0,10"/>
+                   TextColor="#432C81"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
             <Label Text="List Of All Clients"
+                   TextColor="#432C81"
+                   FontSize="18"
                    HorizontalOptions="Center"
-                   FontSize="Medium"
-                   Margin="0,0,0,20"/>
-            <ListView x:Name="UsersListView">
+                   Margin="0,10,0,20"/>
+        </StackLayout>
+
+        <!-- ListView for user list -->
+        <StackLayout Grid.Row="1"
+                     Padding="10"
+                     Spacing="10">
+            <ListView x:Name="UsersListView"
+                      BackgroundColor="WhiteSmoke">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Fullname}"
-                                  Detail="{Binding Email}"/>
+                                  Detail="{Binding Email}"
+                                  TextColor="#432C81"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
+
+        <!-- Navbar/Simple -->
+        <StackLayout Grid.Row="2"
+                     Orientation="Horizontal"
+                     Padding="16,16"
+                     Spacing="40"
+                     HorizontalOptions="FillAndExpand"
+                     BackgroundColor="WhiteSmoke">
+            <!-- Icon/Home -->
+            <Image Source="home_icon.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   VerticalOptions="Center"/>
+            <!-- Icon/Chart -->
+            <Image Source="chart_icon.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   VerticalOptions="Center"/>
+            <!-- Icon/Bell -->
+            <Image Source="bell_icon.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   VerticalOptions="Center"/>
+            <!-- Icon/Setting -->
+            <ImageButton Clicked="SettingsButton_Clicked"
+                         BackgroundColor="Transparent"
+                         Source="setting_icon.png"
+                         WidthRequest="24"
+                         HeightRequest="24"
+                         VerticalOptions="Center"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>
-
-
