@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Project_D.HomePage"
-             BackgroundColor="White">
+             x:Class="Project_D.NotificationPage"
+             BackgroundColor="White"
+             Title="Notifications">
 
     <Grid>
         <!-- Rows: 1 for greeting, 2 for content, 3 for navbar -->
@@ -19,14 +20,11 @@
            VerticalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="👋🏻 Hello " />
-                        <Span Text="{Binding GreetingText}" />
+                        <Span Text="🔔 Notifications" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
         </Grid>
-
-
 
         <!-- Profile icon in the top right corner -->
         <Image Source="mindeaze.png"
@@ -37,46 +35,12 @@
                Margin="0,10,10,0"
                Grid.Row="0" />
 
-        <!-- StackLayout for the rest of the content -->
-        <StackLayout Padding="10" Spacing="20" Grid.Row="1">
-            <Label Text="Home Page"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand"
-                   TextColor="#432C81"
-                   FontSize="Medium"/>
-
-            <!-- Add your home page content here -->
-            <Button Text="Heart rate ❤️"
-                    Clicked="OnButton1Clicked"
-                    HeightRequest="80"
-                    BackgroundColor="#EDECF4"
-                    TextColor="#432C81"
-                    FontFamily="Raleway"/>
-
-            <Button Text="Stress level 🦄"
-                    Clicked="OnButton2Clicked"
-                    HeightRequest="80"
-                    BackgroundColor="#EDECF4"
-                    TextColor="#432C81" />
-
-            <Button Text="Notification 🔔"
-                    Clicked="OnButton3Clicked"
-                    HeightRequest="80"
-                    BackgroundColor="#EDECF4"
-                    TextColor="#432C81" />
-
-            <Button Text="Preferences 🤞"
-                    Clicked="OnButton4Clicked"
-                    HeightRequest="80"
-                    BackgroundColor="#EDECF4"
-                    TextColor="#432C81" />
-
-            <Button Text="Finding yourself 🪞"
-                    Clicked="OnButton5Clicked"
-                    HeightRequest="80"
-                    BackgroundColor="#EDECF4"
-                    TextColor="#432C81" />
-        </StackLayout>
+        <!-- StackLayout for the notifications content -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="10" Spacing="20" x:Name="NotificationLayout">
+                <!-- Add your notifications content here -->
+            </StackLayout>
+        </ScrollView>
 
         <!-- Navbar/Simple -->
         <StackLayout
@@ -87,8 +51,8 @@
             HorizontalOptions="FillAndExpand"
             BackgroundColor="WhiteSmoke">
 
-            <!-- Icon/Home 2 -->
-            <Image
+            <!-- Icon/Home -->
+            <ImageButton Clicked="HomeButton_Clicked"
             Source="home_icon.png"
             WidthRequest="24"
             HeightRequest="24"

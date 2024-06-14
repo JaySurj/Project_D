@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.OptionsPage"
+             BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <x:String x:Key="Sound">&#xf028;</x:String>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0"
+                             Padding="20"
+                             Spacing="10">
+
+            <!-- Title -->
+            <Label Text="Options"
+                   FontSize="24"
+                   FontFamily="Raleway"
+                   FontAttributes="Bold"
+                   TextColor="#432C81"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start" />
+
+            <!-- Image Selection -->
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="20">
+                <ImageButton Source="afbeelding_1.png"
+                             CommandParameter="0"
+                             Clicked="Select_Image"
+                             WidthRequest="100"
+                             HeightRequest="100" />
+                <ImageButton Source="afbeelding_2.png"
+                             CommandParameter="1"
+                             Clicked="Select_Image"
+                             WidthRequest="100"
+                             HeightRequest="100" />
+                <ImageButton Source="afbeelding_3.png"
+                             CommandParameter="2"
+                             Clicked="Select_Image"
+                             WidthRequest="100"
+                             HeightRequest="100" />
+            </HorizontalStackLayout>
+
+            <!-- Sound Selection -->
+            <VerticalStackLayout Spacing="24"
+                                 HorizontalOptions="StartAndExpand">
+                <!-- Sound 1 -->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <!-- Sound Icon -->
+                    <Image WidthRequest="14"
+                           HeightRequest="14">
+                        <Image.Source>
+                            <FontImageSource Glyph="{StaticResource Sound}"
+                                             FontFamily="FAS"
+                                             Color="#A095C1" />
+                        </Image.Source>
+                    </Image>
+
+                    <!-- Sound Label -->
+                    <Label Text="Sound 1"
+                           FontFamily="Raleway"
+                           FontSize="16"
+                           TextColor="#432C81"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" />
+
+                    <Button Text="Select"
+                            CommandParameter="0"
+                            Clicked="Select_Sound"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center" />
+                </StackLayout>
+
+                <!-- Sound 2 -->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <!-- Sound Icon -->
+                    <Image WidthRequest="14"
+                           HeightRequest="14">
+                        <Image.Source>
+                            <FontImageSource Glyph="{StaticResource Sound}"
+                                             FontFamily="FAS"
+                                             Color="#A095C1" />
+                        </Image.Source>
+                    </Image>
+
+                    <!-- Sound Label -->
+                    <Label Text="Sound 2"
+                           FontFamily="Raleway"
+                           FontSize="16"
+                           TextColor="#432C81"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" />
+
+                    <Button Text="Select"
+                            CommandParameter="1"
+                            Clicked="Select_Sound"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center" />
+                </StackLayout>
+
+                <!-- Sound 3 -->
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="10">
+                    <!-- Sound Icon -->
+                    <Image WidthRequest="14"
+                           HeightRequest="14">
+                        <Image.Source>
+                            <FontImageSource Glyph="{StaticResource Sound}"
+                                             FontFamily="FAS"
+                                             Color="#A095C1" />
+                        </Image.Source>
+                    </Image>
+
+                    <!-- Sound Label -->
+                    <Label Text="Sound 3"
+                           FontFamily="Raleway"
+                           FontSize="16"
+                           TextColor="#432C81"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" />
+
+                    <Button Text="Select"
+                            CommandParameter="2"
+                            Clicked="Select_Sound"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center" />
+                </StackLayout>
+            </VerticalStackLayout>
+
+
+            <!-- Quote Entry -->
+            <Frame BackgroundColor="White"
+                   Padding="0"
+                   HasShadow="False"
+                   BorderColor="#D3D3D3"
+                   CornerRadius="10">
+                <Entry x:Name="QuoteEntry"
+                       FontFamily="Raleway"
+                       Placeholder="Enter your quote"
+                       PlaceholderColor="#432C81"
+                       TextColor="#432C81" />
+            </Frame>
+
+            <!-- Display Selected Image and Sound -->
+            <Label Text="{Binding SelectedImageText}"
+                   FontFamily="Raleway"
+                   FontSize="16"
+                   TextColor="#432C81"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center" />
+
+            <Label Text="{Binding SelectedSoundText}"
+                   FontFamily="Raleway"
+                   FontSize="16"
+                   TextColor="#432C81"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center" />
+
+            <!-- Save Button -->
+            <Button Text="Save"
+                    Clicked="Save_Selection"
+                    BackgroundColor="#432C81"
+                    FontFamily="Raleway"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Grid.Row="2"
+                    Padding="20,10" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

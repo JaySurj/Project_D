@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.WearableConcept.WatchCalmPagexaml"
+             Title="WatchCalmPagexaml">
+
+
+    <AbsoluteLayout>
+        <Image Source="afbeelding_3.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+
+        <Label Text="Inademen, uitademen." FontSize="Small" TextColor="White"
+           AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"/>
+
+        <Label Text="Alles komt goed." FontSize="Small" TextColor="White"
+           AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5, 0.6, AutoSize, AutoSize"/>
+
+        <Button Text="◀" 
+            HorizontalOptions="Start" 
+            VerticalOptions="Start" 
+            FontSize="Medium"
+            BackgroundColor="Transparent"
+            TextColor="White"
+            Margin="10,30,0,0"
+            WidthRequest="50"
+            HeightRequest="50"
+            AbsoluteLayout.LayoutFlags="None"
+            Clicked="Backbuttoncalm">
+        </Button>
+    </AbsoluteLayout>
+
+</ContentPage>

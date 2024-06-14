@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.WearableConcept.WatchSportModusPage"
+             Title="WatchSportModusPage"
+             BackgroundColor="Black">
+
+    <Grid>
+        <!-- Button positioned at top-left corner -->
+        <Button Text="◀"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start"
+                FontSize="Medium"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                Margin="15,15,0,0"
+                WidthRequest="50"
+                HeightRequest="50"
+                Clicked="Backbuttonsport"/>
+
+        <!-- Frame centered in the grid -->
+        <Frame Grid.Row="0" Grid.Column="0"
+               BorderColor="Black" HasShadow="False" Padding="10"
+               VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Gray"
+               Margin="20">
+
+            <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                <Label Text="Sport Modus" TextColor="White"/>
+                <Switch x:Name="SportModus" IsToggled="false" BackgroundColor="Gray"
+                        VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+            </StackLayout>
+
+        </Frame>
+    </Grid>
+
+</ContentPage>

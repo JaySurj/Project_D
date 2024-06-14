@@ -65,7 +65,6 @@ namespace Project_D
                 if (File.Exists(_databasePath))
                 {
                     File.Delete(_databasePath);
-                    await DisplayAlert("Info", "Local database wiped clean.", "OK");
                 }
             }
             catch (Exception ex)
@@ -88,7 +87,6 @@ namespace Project_D
                     }
                 }
 
-                await DisplayAlert("Success", $"File downloaded: {fileName}", "OK");
             }
             catch (Dropbox.Api.ApiException<DownloadError> ex)
             {
@@ -117,7 +115,6 @@ namespace Project_D
                         Password = "adminpassword"
                     };
                     await _connection.InsertAsync(adminUser);
-                    DisplayAlert("Info", "Admin account created.", "OK");
                     // Upload the updated database back to Dropbox
                     await UploadDatabaseToDropbox("/Project_D", DatabaseConfig.DatabaseName, _databasePath);
                 }
@@ -186,18 +183,7 @@ namespace Project_D
                 {
                     await DisplayAlert("Error", "Invalid email or password.", "OK");
                 }
-
-
-                if (user != null)
-                {
-                    await DisplayAlert("Success", "Login successful!", "OK");
-                    // Navigate to a success page/ home page
-                    await Navigation.PushAsync(new HomePage(user));
-                }
-                else
-                {
-                    await DisplayAlert("Error", "Invalid email or password.", "OK");
-                }
+   
             }
             catch (Exception ex)
             {

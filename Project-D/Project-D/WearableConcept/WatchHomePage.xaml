@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.WearableConcept.WatchHomePage"
+             Title="WatchHomePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="5"  Padding="50,0,50,20">
+            <Button Text="BPM" Clicked="OnBpmButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White" />
+            <Button Text="Calming" Clicked="OnCalmingButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White"/>
+            <Button Text="Settings" Clicked="OnSettingsButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White"/>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
+
+    

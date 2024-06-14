@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project_D.WearableConcept.WatchBpmPage"
+             Title="WatchBpmPage"
+             BackgroundColor ="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back Button -->
+        <Button Text="◀" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start" 
+                FontSize="Medium"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                Margin="10,30,0,0"
+                WidthRequest="50"
+                HeightRequest="50"
+                Clicked="OnBackButtonClicked"
+                />
+
+        <!-- Header -->
+        <Label Text="Huidige hartslag" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" TextColor="White" Grid.Row="1" />
+
+        <!-- Current Heart Rate Section -->
+        <StackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="5">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Padding="0,20">
+                <Label x:Name="HeartLabel" Text="❤️" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
+                <Label x:Name="CurrentBpmLabel" Text="99 BPM" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Bottom Section -->
+        <Grid Grid.Row="2" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Bottom - Hoogste piek -->
+            <StackLayout Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Padding="20,0,0,50">
+                <Label Text="Piek" FontSize="Micro" FontAttributes="Bold" TextColor="White"/>
+                <Label x:Name="PeakBpmLabel" Text="..." FontSize="Micro" FontAttributes="Bold" TextColor="White"/>
+                
+            </StackLayout>
+
+            <!-- Right Bottom - Gemiddelde hartslag -->
+            <StackLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="End" Padding="0,20,10,50">
+                <Label Text="Gemiddeld" FontSize="Micro" FontAttributes="Bold" TextColor="White"/>
+                <Label x:Name="AverageBpmLabel" Text="..." FontSize="Micro" FontAttributes="Bold" TextColor="White"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

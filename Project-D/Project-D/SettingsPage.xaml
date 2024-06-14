@@ -8,7 +8,7 @@
         <x:String x:Key="Account">&#xf007;</x:String>
         <x:String x:Key="Notifications">&#xf0f3;</x:String>
         <x:String x:Key="Privacy">&#xf3ed;</x:String>
-        <x:String x:Key="Sounds">&#xf028;</x:String>
+        <x:String x:Key="Preferences">&#xf303;</x:String>
         <x:String x:Key="Language">&#xf57d;</x:String>
         <x:String x:Key="Arrow-Right">&#xf054;</x:String>
         <x:String x:Key="Logout">&#xf2f5;</x:String>
@@ -170,31 +170,31 @@
                     </StackLayout>
 
 
-                    <!-- Sounds -->
+                    <!-- Preferences -->
                     <StackLayout Orientation="Horizontal"
                                  HorizontalOptions="FillAndExpand"
                                  Spacing="10">
-                        <!-- Sounds Icon -->
+                        <!-- Preferences Icon -->
                         <Image WidthRequest="14"
                                HeightRequest="14">
                             <Image.Source>
-                                <FontImageSource Glyph="{StaticResource Sounds}"
+                                <FontImageSource Glyph="{StaticResource Preferences}"
                                                  FontFamily="FAS"
                                                  Color="#A095C1" />
                             </Image.Source>
                         </Image>
 
-                        <!-- Sounds Label -->
-                        <Label Text="Sounds"
+                        <!-- Preferences Label -->
+                        <Label Text="Preferences"
                                FontFamily="Raleway"
                                FontSize="16"
                                TextColor="#432C81"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="Center" />
 
-                        <!--<StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Sounds" />
-                        </StackLayout.GestureRecognizers>-->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Preferences" />
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
 
 

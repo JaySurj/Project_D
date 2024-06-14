@@ -43,7 +43,10 @@ namespace Project_D
             {
                 Fullname = FullnameEntry.Text,
                 Email = EmailEntry.Text,
-                Password = PasswordEntry.Text
+                Password = PasswordEntry.Text,
+                Quote = "",
+                Image = "afbeelding_1",
+                Sound = "muziek_1"
             };
 
             if (string.IsNullOrWhiteSpace(user.Fullname) || string.IsNullOrWhiteSpace(user.Email) || string.IsNullOrWhiteSpace(user.Password))
