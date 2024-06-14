@@ -53,7 +53,8 @@
                     BorderColor="#432C81"
                     CornerRadius="10"
                     Padding="20,10" />
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+          
     </ScrollView>
 
 </ContentPage>

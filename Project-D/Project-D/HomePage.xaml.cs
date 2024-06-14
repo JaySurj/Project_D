@@ -6,6 +6,7 @@ namespace Project_D
     public partial class HomePage : ContentPage, INotifyPropertyChanged
     {
         private int _buttonHeight = 50; // Initial button height
+        private NotificationPage _notificationPage;
 
         public int ButtonHeight
         {
@@ -19,8 +20,8 @@ namespace Project_D
                 }
             }
         }
-        public string _greetingText;
 
+        private string _greetingText;
         public string GreetingText
         {
             get { return _greetingText; }
@@ -32,7 +33,7 @@ namespace Project_D
                     OnPropertyChanged(nameof(GreetingText));
                 }
             }
-        }   
+        }
 
         private User _user;
         public User User
@@ -48,11 +49,11 @@ namespace Project_D
             }
         }
 
-        public HomePage(User user
-            )
+        public HomePage(User user)
         {
             InitializeComponent();
             _user = user;
+            _notificationPage = new NotificationPage(user); // Initialize NotificationPage
             GreetingText = _user.Fullname;
 
             BindingContext = this; // Set the BindingContext to the instance of HomePage
@@ -62,6 +63,12 @@ namespace Project_D
         {
             Navigation.PushAsync(new SettingsPage(_user));
         }
+
+        private void NotificationButton_Clicked(object sender, EventArgs e)
+        {
+           Navigation.PushAsync(new NotificationPage(_user));
+        }
+
         // INotifyPropertyChanged implementation
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -83,7 +90,7 @@ namespace Project_D
 
         private void OnButton3Clicked(object sender, EventArgs e)
         {
-            // Handle button click
+            Navigation.PushAsync(new NotificationPage(_user));
         }
 
         private void OnButton4Clicked(object sender, EventArgs e)
