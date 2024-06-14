@@ -58,7 +58,7 @@
                      Aspect="AspectFit"
                      HorizontalOptions="Start"
                      VerticalOptions="Center"
-                     WidthRequest="600"
+                     WidthRequest="350"
                      HeightRequest="600"
                      Margin="20,20,0,0"/>
 
