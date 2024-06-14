@@ -6,40 +6,26 @@ namespace Project_D.WearableConcept
 {
     public partial class WatchHomePage : ContentPage
     {
-        private readonly Random _random = new Random();
-        private IDispatcherTimer _dispatcherTimer;
 
         public WatchHomePage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            StartHeartRateSimulation();
+
+        }
+        private async void OnBpmButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new WatchBpmPage());
         }
 
-        private void StartHeartRateSimulation()
+        private async void OnCalmingButtonClicked(object sender, EventArgs e)
         {
-            _dispatcherTimer = Dispatcher.CreateTimer();
-            _dispatcherTimer.Interval = TimeSpan.FromSeconds(2);
-            _dispatcherTimer.Tick += OnTimedEvent;
-            _dispatcherTimer.Start();
+            await Navigation.PushAsync(new WatchCalmPagexaml());
         }
 
-        private void OnTimedEvent(object sender, EventArgs e)
+        private async void OnSettingsButtonClicked(object sender, EventArgs e)
         {
-            // Generate a random BPM value between 60 and 110
-            int currentBpm = _random.Next(60, 111);
-
-            // Update the UI
-            CurrentBpmLabel.Text = $"?? {currentBpm} BPM";
-            AnimateHeart();
-        }
-
-        private void AnimateHeart()
-        {
-            HeartImage.ScaleTo(1.2, 250, Easing.CubicInOut).ContinueWith((t) =>
-            {
-                HeartImage.ScaleTo(1.0, 250, Easing.CubicInOut);
-            });
+            await Navigation.PushAsync(new WatchSportModusPage());
         }
     }
 }

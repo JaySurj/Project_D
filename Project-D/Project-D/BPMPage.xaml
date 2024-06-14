@@ -75,7 +75,8 @@
             BackgroundColor="WhiteSmoke">
 
             <!-- Icon/Home -->
-            <Image
+            <ImageButton
+            Clicked="HomeButton_Clicked"
             Source="home_icon.png"
             WidthRequest="24"
             HeightRequest="24"

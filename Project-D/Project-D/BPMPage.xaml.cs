@@ -198,7 +198,12 @@ namespace Project_D
                 await DisplayAlert("Error", $"Failed to upload JSON to Dropbox: {ex.Message}", "OK");
             }
         }
-
+        
+        private void HomeButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PopAsync();
+        }
         private void NotificationButton_Clicked(object sender, EventArgs e)
         {
             // Handle the button click event here

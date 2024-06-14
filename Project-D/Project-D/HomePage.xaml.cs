@@ -92,10 +92,13 @@ namespace Project_D
         {
             Navigation.PushAsync(new NotificationPage(_user));
         }
-
         private void OnButton4Clicked(object sender, EventArgs e)
         {
-            // Handle button click
+            Navigation.PushAsync(new OptionsPage(_user));
+        }
+        private void OnButton5Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CalmingPage());
         }
     }
 }

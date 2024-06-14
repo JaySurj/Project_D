@@ -9,10 +9,10 @@ public partial class CalmingPage : ContentPage
 
 	private void AreYouOKButton_Clicked(object sender, EventArgs e)
 	{
-        DisplayAlert("Are you okay?", "You are not alone. We are here for you.", "OK");
+        DisplayAlert("Inademen. Uitademen", "Alles komt goed", "OK");
     }
 	private void HelpRelaxButton_Clicked(object sender, EventArgs e)
 	{
-        DisplayAlert("Relaxation Techniques", "Take a deep breath. Inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds. Repeat.", "OK");
+        DisplayAlert("Ontspanningstechnieken", "Neem een diepe ademhaling. Adem in gedurende 4 seconden, houd vast gedurende 4 seconden, adem uit gedurende 4 seconden. Herhaal dit.", "OK");
     }
 }
