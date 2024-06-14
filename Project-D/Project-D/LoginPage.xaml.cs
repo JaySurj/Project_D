@@ -169,7 +169,9 @@ namespace Project_D
                 {
                     var allUsers = await _connection.Table<User>().ToListAsync();
 
-                    await Navigation.PushAsync(new AdminPage());
+                    //await Navigation.PushAsync(new AdminPage());
+                    await Navigation.PushAsync(new AdminStressAnalysisPage());
+
                 }
 
                 else if (user != null)

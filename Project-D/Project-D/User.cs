@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace Project_D
 {
+    //user information
     [SQLite.Table("user")]
 
     public class User
     {
-
-        [PrimaryKey]
-        [AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         [SQLite.Column("id")]
         public int Id { get; set; }
 

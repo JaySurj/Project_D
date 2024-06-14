@@ -7,12 +7,12 @@
         <StackLayout>
             <Label Text="Welcome to .NET MAUI!"
                    VerticalOptions="Center"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Center"/>
             <ListView x:Name="UserListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Fullname}"
-                                  Detail="{Binding Email}" />
+                                  Detail="{Binding Email}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

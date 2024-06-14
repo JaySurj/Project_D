@@ -95,7 +95,7 @@
             VerticalOptions="Center"/>
 
             <!-- Icon/Chart -->
-            <Image
+            <ImageButton Clicked="ChartButton_Clicked"
             Source="chart_icon.png"
             WidthRequest="24"
             HeightRequest="24"
