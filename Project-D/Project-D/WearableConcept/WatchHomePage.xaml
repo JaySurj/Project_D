@@ -2,40 +2,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.WearableConcept.WatchHomePage"
              Title="WatchHomePage"
-             Shell.NavBarIsVisible="False">
-                
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="Black">
 
-    <ContentPage.Resources>
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="Medium" />
-            <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="TextColor" Value="White" />
-        </Style>
-    </ContentPage.Resources>
-
-    <ContentPage.BackgroundColor>
-        <Color>#000000</Color>
-    </ContentPage.BackgroundColor>
-
-    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="CurrentHeartRateLabel" Text="Huidige hartslag" FontSize="Large" FontAttributes="Bold" Grid.Row="0" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
-            <Image x:Name="HeartImage" Source="heart.png" WidthRequest="24" HeightRequest="24" />
-            <Label x:Name="CurrentBpmLabel" Text="❤️ 99 BPM" FontSize="Large" FontAttributes="Bold" />
+
+
+        <StackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="5"  Padding="50,0,50,20">
+            <Button Text="BPM" Clicked="OnBpmButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White" />
+            <Button Text="Calming" Clicked="OnCalmingButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White"/>
+            <Button Text="Settings" Clicked="OnSettingsButtonClicked" HorizontalOptions="FillAndExpand" TextColor="White"/>
         </StackLayout>
-        <Label x:Name="PreviousBpmLabel" Text="50 BPM, 20 min geleden" Grid.Row="2" />
-        <Label Text="Hoogste piek vandaag" FontSize="Large" FontAttributes="Bold" Grid.Row="3" />
-        <Label x:Name="PeakBpmLabel" Text="106 BPM" FontSize="Large" FontAttributes="Bold" Grid.Row="4" />
-        <Label x:Name="PeakTimeLabel" Text="Vandaag om 23:00 uur" Grid.Row="5" />
     </Grid>
+
 </ContentPage>
+
+    

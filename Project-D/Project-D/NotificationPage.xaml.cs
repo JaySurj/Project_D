@@ -82,7 +82,11 @@ namespace Project_D
                 AddNotification(notification);
             }
         }
-
+        private void HomeButton_Clicked(object sender, EventArgs e)
+        {
+            // Handle the button click event here
+            Navigation.PopAsync();
+        }
         private void NotificationButton_Clicked(object sender, EventArgs e)
         {
             // Handle the button click event here

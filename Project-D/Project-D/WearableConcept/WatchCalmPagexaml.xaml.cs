@@ -4,6 +4,11 @@ public partial class WatchCalmPagexaml : ContentPage
 {
 	public WatchCalmPagexaml()
 	{
-		InitializeComponent();
+        NavigationPage.SetHasNavigationBar(this, false);
+        InitializeComponent();
 	}
+    private async void Backbuttoncalm(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }
