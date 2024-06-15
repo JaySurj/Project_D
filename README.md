@@ -5,14 +5,14 @@ Command to run emulator on vsc dotnet build -t:Run -f net7.0-android
 
 
 
-# Link voor dropbox (inloggen met de gegevens hier boven)
+## Link voor dropbox 
 
 https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7
 
 
 ## API Reference
 
-#### Get all items
+#### informatie over onze api call
 
 ```
   4 hour refresh token dropbox
