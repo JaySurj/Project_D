@@ -37,7 +37,7 @@ https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7
 | `Admin` | `admin@example.com` | adminpassword|
 | `User` | `1` | 1 |
 
- - [Link voor de Dropbox_API_Token_Handlijding](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+ - [Link voor de Dropbox_API_Token_Handlijding](https://github.com/JaySurj/Project_D/blob/main/Dropbox_API_Token_Handleiding.pdf)
 
 
 
