@@ -18,9 +18,9 @@ https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7
   4 hour refresh token dropbox
 ```
 
-| Parameter in code| Type     | Link                |
+| Parameter in code| Type     | Link met informatie over het krijgen van de API-key                |
 | :-------- | :------- | :------------------------- |
-| `token` | `string` | https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7 |
+| `token` | `string` | [Link voor de Dropbox_API_Token_Handlijding](https://github.com/JaySurj/Project_D/blob/main/Dropbox_API_Token_Handleiding.pdf) |
 
 
 
@@ -37,7 +37,6 @@ https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7
 | `Admin` | `admin@example.com` | adminpassword|
 | `User` | `1` | 1 |
 
- - [Link voor de Dropbox_API_Token_Handlijding](https://github.com/JaySurj/Project_D/blob/main/Dropbox_API_Token_Handleiding.pdf)
 
 
 
