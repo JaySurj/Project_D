@@ -1,7 +1,7 @@
 
 # Project_D
 
-Command to run emulator on vsc dotnet build -t:Run -f net7.0-android
+Command to run emulator on vsc dotnet build: -t:Run -f net7.0-android
 
 
 
@@ -36,6 +36,9 @@ https://www.dropbox.com/developers/apps/info/56879fw3gl8xus7
 | :-------- | :------- | :------------------------- |
 | `Admin` | `admin@example.com` | adminpassword|
 | `User` | `1` | 1 |
+
+ - [Link voor de Dropbox_API_Token_Handlijding](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
+
 
 
 
