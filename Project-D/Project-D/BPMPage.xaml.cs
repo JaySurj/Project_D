@@ -52,7 +52,7 @@ namespace Project_D
             // if there is a bpm higher than 99 navigate to notification page
             if (_heartbeatData.Any(d => d.BPM >= 100))
             {
-                await Navigation.PushAsync(new CalmingPage());
+                await Navigation.PushAsync(new CalmingPage(_currentUser));
             }
             else
             {

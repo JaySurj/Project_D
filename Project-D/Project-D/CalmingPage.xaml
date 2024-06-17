@@ -1,43 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Project_D.CalmingPage"
-             Title="CalmingPage">
-            
+             BackgroundColor="White">
 
     <ScrollView>
         <VerticalStackLayout Spacing="5"
                              Padding="30,0"
                              VerticalOptions="FillAndExpand">
 
-            <!-- Pop-up window content -->
-            <Frame CornerRadius="10" BackgroundColor="White" Padding="20"
-               IsVisible="{Binding IsPopupVisible}" VerticalOptions="Center" HorizontalOptions="Center">
-                <StackLayout>
-                    <Label Text="Keep Calm message or Insert Quote" HorizontalOptions="Center"/>
-                    <!-- Add more labels or controls for additional text or content -->
-                </StackLayout>
-            </Frame>
+            <!-- Welcome Text -->
+            <Label 
+                   x:Name="UserQuote"
+                   Text="Mind Eaze"
+                   FontFamily="Raleway"
+                   HorizontalOptions="Center"
+                   TextColor="#432C81" />
 
-            <Image Source="calmpic.png"
-                   SemanticProperties.Description="Mindfreeze!"
+            <Image Source= "{Binding ImageSource}"
+                   SemanticProperties.Description="Cute narwal waving hi to you!"
                    HeightRequest="300"
                    HorizontalOptions="Center" />
 
-            <!-- Signup Button -->
-            <Button Text="Are You OK?"
-                    Clicked="AreYouOKButton_Clicked"
+            <Button x:Name="ImOkay"
+                    Text="Continue"
                     FontFamily="Raleway"
+                    Clicked="AreYouOKButton_Clicked"
                     HorizontalOptions="FillAndExpand"
                     TextColor="white"
-                    BackgroundColor="DarkOliveGreen"
+                    BackgroundColor="#432C81"
                     CornerRadius="10"
                     Padding="20,10" />
 
-            <!-- Login Button -->
-            <Button Text="Relax excercises"
-                    Clicked="HelpRelaxButton_Clicked"
+            <Button x:Name="excersisez"
+                    Text="View calming exersizes"
                     FontFamily="Raleway"
+                    Clicked="HelpRelaxButton_Clicked"
                     HorizontalOptions="FillAndExpand"
                     TextColor="#432C81"
                     BackgroundColor="white"
@@ -46,9 +43,7 @@
                     CornerRadius="10"
                     Padding="20,10" />
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>
-
-
-    

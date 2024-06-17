@@ -139,7 +139,6 @@
                 </StackLayout>
             </VerticalStackLayout>
 
-
             <!-- Quote Entry -->
             <Frame BackgroundColor="White"
                    Padding="0"
@@ -150,7 +149,8 @@
                        FontFamily="Raleway"
                        Placeholder="Enter your quote"
                        PlaceholderColor="#432C81"
-                       TextColor="#432C81" />
+                       TextColor="#432C81"
+                       Text="{Binding SelectedQuote}" />
             </Frame>
 
             <!-- Display Selected Image and Sound -->
@@ -179,6 +179,5 @@
                     Grid.Row="2"
                     Padding="20,10" />
         </VerticalStackLayout>
-
     </Grid>
 </ContentPage>

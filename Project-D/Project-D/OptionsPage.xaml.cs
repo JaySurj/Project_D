@@ -8,10 +8,10 @@ namespace Project_D
     public partial class OptionsPage : ContentPage
     {
         private User _currentUser;
-
         public LocalDbService _dbService = new LocalDbService();
         private string _selectedImage;
         private string _selectedSound;
+        private string _selectedQuote;
         private List<string> afbeeldingen = new List<string> { "afbeelding_1", "afbeelding_2", "afbeelding_3" };
         private List<string> geluiden = new List<string> { "muziek_1", "muziek_2", "muziek_3" };
 
@@ -37,6 +37,16 @@ namespace Project_D
             }
         }
 
+        public string SelectedQuote
+        {
+            get => _selectedQuote;
+            set
+            {
+                _selectedQuote = value;
+                OnPropertyChanged(nameof(SelectedQuote));
+            }
+        }
+
         public string SelectedImageText => $"You have selected Image: {SelectedImage}";
         public string SelectedSoundText => $"You have selected Sound: {SelectedSound}";
 
@@ -44,7 +54,15 @@ namespace Project_D
         {
             InitializeComponent();
             _currentUser = user;
+            LoadUserPreferences();
             BindingContext = this;
+        }
+
+        private void LoadUserPreferences()
+        {
+            SelectedImage = Preferences.Get("ImagePath", _currentUser.Image);
+            SelectedSound = Preferences.Get("SoundPath", _currentUser.Sound);
+            SelectedQuote = Preferences.Get("Quote", _currentUser.Quote);
         }
 
         private void Select_Image(object sender, EventArgs e)
@@ -79,14 +97,12 @@ namespace Project_D
                 _currentUser.Sound = SelectedSound;
 
                 await _dbService.Update(_currentUser);
-                DisplayAlert("Success", "Your settings have been saved", "OK");
+                await DisplayAlert("Success", "Your settings have been saved", "OK");
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 await DisplayAlert("Error", ex.Message, "OK");
             }
-
-            
         }
     }
 }

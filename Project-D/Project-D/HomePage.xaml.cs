@@ -90,7 +90,7 @@ namespace Project_D
 
         private void OnButton2Clicked(object sender, EventArgs e)
         {
-            // Handle button click
+            Navigation.PushAsync(new ChartPage());
         }
 
         private void OnButton3Clicked(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace Project_D
         }
         private void OnButton5Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CalmingPage());
+            Navigation.PushAsync(new CalmingPage(_user));
         }
     }
 }
